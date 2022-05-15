@@ -15,6 +15,7 @@
 
 
     <ImageView
+        android:id="@+id/im_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/verh1"
@@ -25,7 +26,7 @@
         android:id="@+id/main_str"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dog_hum"
+        android:layout_below="@+id/dog_hum_main"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
         android:text="@string/main_string"
@@ -42,7 +43,7 @@
         android:textSize="15sp" />
 
     <ImageView
-        android:id="@+id/dog_hum"
+        android:id="@+id/dog_hum_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/verh1"

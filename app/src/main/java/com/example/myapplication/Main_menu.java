@@ -1,8 +1,12 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,25 +22,51 @@ import com.example.myapplication.databinding.ActivityMainBinding;
 public class Main_menu extends AppCompatActivity {
     Button next;
     ActivityMainBinding binding;
-    View main;
+    ImageView verh1;
+    ImageView im_main;
+    TextView main_str;
+    TextView main_str2;
+    ImageView dog_hum_main;
+    Button next_main;
 
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        main = (View) findViewById(R.id.main);
-        main.setVisibility(View.INVISIBLE);
+        verh1 = (ImageView) findViewById(R.id.verh1);
+        im_main = (ImageView) findViewById(R.id.im_main);
+        dog_hum_main = (ImageView) findViewById(R.id.dog_hum_main);
+        main_str = (TextView) findViewById(R.id.main_str);
+        main_str2 = (TextView) findViewById(R.id.main_str2);
+        next_main = (Button) findViewById(R.id.next_main);
+
+        verh1.setVisibility(View.INVISIBLE);
+        im_main.setVisibility(View.INVISIBLE);
+        dog_hum_main.setVisibility(View.INVISIBLE);
+        main_str.setVisibility(View.INVISIBLE);
+        main_str2.setVisibility(View.INVISIBLE);
+        next_main.setVisibility(View.INVISIBLE);
+
         binding.bottomNavig.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.search:
                     ReplaceFragment(new SearchFragment());
+                    break;
                 case R.id.hands:
                     ReplaceFragment(new HandsFragment());
+                    break;
+
                 case R.id.lost:
                     ReplaceFragment(new LostFragment());
+                    break;
+
                 case R.id.profile:
                     ReplaceFragment(new ProfileFragment());
+                    break;
+
             }
 
             return true;
