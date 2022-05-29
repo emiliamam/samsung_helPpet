@@ -9,21 +9,23 @@
         android:layout_height="260dp"
         android:src="@drawable/verh_blue"
         android:layout_marginTop="-10dp"/>
+
     <TextView
-        android:id="@+id/login"
+        android:id="@+id/registration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/verh_blue"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
         android:text="Регистрация"
+        android:textColor="#21214A"
         android:textSize="24sp" />
 
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login"
+        android:layout_below="@+id/registration"
         android:layout_centerInParent="true"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
@@ -62,36 +64,32 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/button"
         android:text="Войти" />
-    <TextView
-        android:id="@+id/forget_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/but_reg"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="30dp"
-        android:text="Забыли пароль?"
-        android:textColor="#21214A"
-        android:textSize="18sp" />
+
+
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/forget_pass"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/but_reg"
+        android:layout_marginTop="30dp"
         android:layout_centerInParent="true"
         android:orientation="horizontal">
         <TextView
 
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Нет аккаунта?"
+            android:text="Есть аккаунт?"
 
             />
-        <TextView
-
+        <Button
+            android:id="@+id/login"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
-            android:text="Зарегитрируйтесь"
+            android:text="Войти"
             android:gravity="right"
+            android:background=""
+            android:textColor="#717171"
+            android:textSize="12sp"
+
 
             />
 
