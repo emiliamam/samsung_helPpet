@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import com.example.myapplication.Fragment_bottom_nav.LostFragment;
 import com.example.myapplication.Fragment_bottom_nav.ProfileFragment;
 import com.example.myapplication.Fragment_bottom_nav.SearchFragment;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Main_menu extends AppCompatActivity {
     Button next;
@@ -28,6 +30,8 @@ public class Main_menu extends AppCompatActivity {
     TextView main_str2;
     ImageView dog_hum_main;
     Button next_main;
+    private FirebaseAuth mauth;
+    Button logout;
 
 
     @SuppressLint("NonConstantResourceId")
@@ -49,6 +53,10 @@ public class Main_menu extends AppCompatActivity {
         main_str.setVisibility(View.INVISIBLE);
         main_str2.setVisibility(View.INVISIBLE);
         next_main.setVisibility(View.INVISIBLE);
+
+        mauth = FirebaseAuth.getInstance();
+
+
 
         binding.bottomNavig.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {

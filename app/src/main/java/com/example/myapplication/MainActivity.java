@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Registration.class);
+                Intent intent = new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(), "cool", Toast.LENGTH_LONG).show();
             }

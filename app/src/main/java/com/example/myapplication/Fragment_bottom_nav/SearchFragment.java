@@ -1,5 +1,6 @@
 package com.example.myapplication.Fragment_bottom_nav;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,11 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 
 //import com.example.myapplication.Adapter.CardAdapter;
+import com.example.myapplication.Login;
 import com.example.myapplication.Main_menu;
 import com.example.myapplication.Model.model;
 import com.example.myapplication.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.huxq17.swipecardsview.SwipeCardsView;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
@@ -77,6 +81,8 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_search, container, false);
+
+        FirebaseAuth mauth = FirebaseAuth.getInstance();
 
         s = new ArrayList<String >();
         s.add("one");

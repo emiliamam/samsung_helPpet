@@ -6,9 +6,66 @@
     tools:context=".Fragment_bottom_nav.HandsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:id="@+id/lim">
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="26"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            />
+
+
+        <ImageButton
+            android:id="@+id/ima"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/add"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="25dp"
+            />
+    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        >-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:paddingBottom="15dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="15dp">
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_weight="2"
+        android:text="Их отдают в добрые руки"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+
+        />
+    </RelativeLayout>
+<!--    </LinearLayout>-->
+<!--    <TextView-->
+<!--        android:id="@+id/something_wrong"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200"-->
+<!--        android:layout_below="@id/lim"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginStart="35dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Неккоректно введены данные"-->
+
+<!--        android:textColor="#FF0000" />-->
 
 </FrameLayout>
