@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 //import com.example.myapplication.Adapter.CardAdapter;
 import com.example.myapplication.Login;
@@ -34,6 +35,9 @@ public class SearchFragment extends Fragment {
     ArrayList<String> s;
     ArrayAdapter arrayAdapter;
     int n=0;
+
+    private ImageButton add_search;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -84,6 +88,7 @@ public class SearchFragment extends Fragment {
 
         FirebaseAuth mauth = FirebaseAuth.getInstance();
 
+        add_search = (ImageButton) v.findViewById(R.id.add_search);
         s = new ArrayList<String >();
         s.add("one");
         s.add("two");
