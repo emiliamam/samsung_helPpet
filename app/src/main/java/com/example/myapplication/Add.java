@@ -2,14 +2,16 @@ package com.example.myapplication;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.add.add_find;
+import com.example.myapplication.add.add_give;
+import com.example.myapplication.add.add_lost;
 
 public class Add extends AppCompatActivity {
     Button next;
@@ -84,6 +86,10 @@ public class Add extends AppCompatActivity {
             public void onClick(View view) {
                 if(number==1){
                     startActivity(new Intent(Add.this, add_lost.class));
+                }else if(number==2){
+                    startActivity(new Intent(Add.this, add_give.class));
+                }else if(number==3){
+                    startActivity(new Intent(Add.this, add_find.class));
                 }
             }
         });

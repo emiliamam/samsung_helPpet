@@ -39,7 +39,13 @@
             android:name=".Add"
             android:exported="true"/>
         <activity
-            android:name=".add_lost"
+            android:name=".add.add_lost"
+            android:exported="true"/>
+        <activity
+            android:name=".add.add_find"
+            android:exported="true"/>
+        <activity
+            android:name=".add.add_give"
             android:exported="true"/>
     </application>
 

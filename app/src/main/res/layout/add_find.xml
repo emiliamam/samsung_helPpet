@@ -17,16 +17,29 @@
         android:layout_marginTop="-10dp"
         android:background="@drawable/ic_wave__5_"
         android:rotation="180"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        >
+    <ImageButton
+        android:id="@+id/arrow_back_find"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
 
+        android:background="@drawable/arrow"/>
+    </LinearLayout>
     <ProgressBar
+
         android:layout_marginTop="-6dp"
-        android:id="@+id/pbReg"
+        android:id="@+id/pb_find"
         style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
-        android:progressTint="#0085FF"
-        android:progressBackgroundTint="#C4C4C4"
+        android:progressTint="#9335FF"
+        android:progressBackgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +72,7 @@
             />
 
         <ImageButton
-            android:id="@+id/ibAddPhoto"
+            android:id="@+id/ibAddPhoto_give"
             android:layout_width="49dp"
             android:layout_height="47dp"
             android:layout_marginLeft="70dp"
@@ -70,14 +83,14 @@
         <Button
 
             android:layout_marginTop="25sp"
-            android:id="@+id/but_im"
+            android:id="@+id/but_im_find"
             android:layout_width="300dp"
             android:layout_height="45dp"
             android:background="@drawable/button"
             android:text="Далее" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/set_name_street_find"
+        android:id="@+id/set_name_find"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -104,35 +117,89 @@
             android:textColor="#717171"
             android:textSize="18sp" />
 
+
         <EditText
-            android:id="@+id/name_metro_find"
+            android:id="@+id/name_anim_find"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:maxLines="1"
-            android:hint="Введите метро"
+            android:hint="Введите кличку питомца"
             android:textColor="#717171"
             android:textSize="18sp" />
         <EditText
-            android:id="@+id/name_street_find"
+            android:id="@+id/about_anim_find"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:maxLines="1"
-            android:hint="Введите улицу и дом"
+            android:hint="Введите описание"
             android:textColor="#717171"
             android:textSize="18sp" />
         <Button
             android:layout_marginTop="25sp"
-            android:id="@+id/next_add_2"
+            android:id="@+id/next_add_find2"
             android:layout_width="300dp"
             android:layout_height="45dp"
             android:background="@drawable/button"
             android:text="Далее" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/set_street_find"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/verh_blue"
+        android:layout_marginTop="-250dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/verh_blue"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="45dp"
+            android:gravity="center"
+            android:text="Введите данные"
+            android:textColor="#21214A"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/name_metro_find"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="80dp"
+            android:hint="Введите метро"
+            android:maxLines="1"
+            android:textColor="#717171"
+            android:textSize="18sp" />
+
+
+        <EditText
+            android:id="@+id/street_find"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_anim"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:hint="Введите улицу и дом"
+            android:maxLines="1"
+            android:textColor="#717171"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/next_add_give3"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="25sp"
+            android:background="@drawable/button"
+            android:text="Далее" />
+    </LinearLayout>
 </RelativeLayout>

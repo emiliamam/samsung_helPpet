@@ -7,18 +7,92 @@
     tools:context=".Fragment_bottom_nav.ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/im"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#21214A"/>
+    <ImageView
+        android:id="@+id/verh_blue"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+
+        android:layout_below="@id/im"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/ic_wave__5_"
+        android:rotation="180"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="not cool" />
-
-    <com.lorentzos.flingswipe.SwipeFlingAdapterView
-
+        android:layout_height="wrap_content"
+        android:text="Вашь профиль"
+        android:textSize="23sp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="-40dp"
+        android:textColor="@color/black"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/but_redactor"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/card"
-        app:rotation_degrees="20"
-        app:max_visible="7"
-        app:min_adapter_stack="7"/>
+        android:layout_height="60dp"
+        android:background="@drawable/button_profile"
+        android:gravity="left|center_vertical"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:textColor="#717171"
+        android:text="Редактировать профиль"
+        android:textSize="16sp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:textColor="#717171"
+        android:id="@+id/but_love"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/button_profile"
+        android:gravity="left|center_vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:text="Избранное"
+        android:textSize="16sp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:textColor="#717171"
+        android:id="@+id/but_vet"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/button_profile"
+        android:gravity="left|center_vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:text="Ветеринарные клиники рядом"
+        android:textSize="16sp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/but_pruit"
+        android:textColor="#717171"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/button_profile"
+        android:gravity="left|center_vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:text="Приюты рядом"
+        android:textSize="16sp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/but_help"
+        android:textColor="#717171"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/button_profile"
+        android:gravity="left|center_vertical"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:text="Как я могу помочь?"
+        android:textSize="16sp"
+        />
 
+</LinearLayout>
 </FrameLayout>
