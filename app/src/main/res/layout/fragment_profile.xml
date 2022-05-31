@@ -14,7 +14,7 @@
     <ImageView
         android:id="@+id/im"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:background="#21214A"/>
     <ImageView
         android:id="@+id/verh_blue"

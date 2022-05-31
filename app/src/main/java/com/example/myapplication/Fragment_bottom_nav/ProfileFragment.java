@@ -70,41 +70,41 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        s = new ArrayList<String >();
-        s.add("one");
-        s.add("two");
-        s.add("three");
-
-        SwipeFlingAdapterView swipeFlingAdapterView = (SwipeFlingAdapterView) v.findViewById(R.id.card);
-        arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.carditem, R.id.text_card_item, s);
-        swipeFlingAdapterView.setAdapter(arrayAdapter);
-        swipeFlingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
-            @Override
-            public void removeFirstObjectInAdapter() {
-                s.remove(0);
-                arrayAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onLeftCardExit(Object o) {
-
-            }
-
-            @Override
-            public void onRightCardExit(Object o) {
-
-            }
-
-            @Override
-            public void onAdapterAboutToEmpty(int i) {
-
-            }
-
-            @Override
-            public void onScroll(float v) {
-
-            }
-        });
+//        s = new ArrayList<String >();
+//        s.add("one");
+//        s.add("two");
+//        s.add("three");
+//
+//        SwipeFlingAdapterView swipeFlingAdapterView = (SwipeFlingAdapterView) v.findViewById(R.id.card);
+//        arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.carditem, R.id.text_card_item, s);
+//        swipeFlingAdapterView.setAdapter(arrayAdapter);
+//        swipeFlingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+//            @Override
+//            public void removeFirstObjectInAdapter() {
+//                s.remove(0);
+//                arrayAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onLeftCardExit(Object o) {
+//
+//            }
+//
+//            @Override
+//            public void onRightCardExit(Object o) {
+//
+//            }
+//
+//            @Override
+//            public void onAdapterAboutToEmpty(int i) {
+//
+//            }
+//
+//            @Override
+//            public void onScroll(float v) {
+//
+//            }
+//        });
         return v;
     }
 }
