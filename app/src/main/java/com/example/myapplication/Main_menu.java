@@ -56,7 +56,7 @@ public class Main_menu extends AppCompatActivity {
 
         mauth = FirebaseAuth.getInstance();
 
-
+        ReplaceFragment(new SearchFragment());
 
         binding.bottomNavig.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {

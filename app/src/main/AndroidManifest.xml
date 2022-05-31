@@ -29,6 +29,18 @@
         <activity
             android:name=".Main_menu"
             android:exported="true"/>
+        <activity
+            android:name=".ForgetPassword"
+            android:exported="true"/>
+        <activity
+            android:name=".ForgetPassword2"
+            android:exported="true"/>
+        <activity
+            android:name=".Add"
+            android:exported="true"/>
+        <activity
+            android:name=".add_lost"
+            android:exported="true"/>
     </application>
 
 </manifest>

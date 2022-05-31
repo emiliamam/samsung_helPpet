@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 //import com.example.myapplication.Adapter.CardAdapter;
+import com.example.myapplication.Add;
+import com.example.myapplication.ForgetPassword;
 import com.example.myapplication.Login;
 import com.example.myapplication.Main_menu;
 import com.example.myapplication.Model.model;
@@ -94,6 +96,13 @@ public class SearchFragment extends Fragment {
         s.add("two");
         s.add("three");
 
+        add_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SearchFragment.this.getActivity(), Add.class));
+
+            }
+        });
         SwipeFlingAdapterView swipeFlingAdapterView = (SwipeFlingAdapterView) v.findViewById(R.id.card);
         arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.carditem, R.id.text_card_item, s);
         swipeFlingAdapterView.setAdapter(arrayAdapter);

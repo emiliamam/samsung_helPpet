@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/im"
@@ -17,30 +18,63 @@
         android:background="@drawable/ic_wave__5_"
         android:rotation="180"/>
 
+    <ProgressBar
+        android:layout_marginTop="-6dp"
+        android:id="@+id/pbReg"
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:progressTint="#0085FF"
+        android:progressBackgroundTint="#C4C4C4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_below="@+id/verh_blue">
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/i_lost"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:background="@drawable/button_white"
+            android:background="@drawable/button_add"
             android:layout_gravity="center"
+            android:text="Я потерял"
+            android:textSize="20sp"
             />
-        <Button
-            android:layout_marginTop="10dp"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/i_find"
             android:layout_width="250dp"
             android:layout_height="60dp"
+            android:background="@drawable/button_add"
             android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="Я нашел"
+            android:textSize="20sp"
             />
-        <Button
-            android:layout_marginTop="10dp"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/i_give"
             android:layout_width="250dp"
             android:layout_height="60dp"
+            android:background="@drawable/button_add"
             android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="Я отдаю"
+            android:textSize="20sp"
             />
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/but_next_add"
+            android:layout_width="250dp"
+            android:layout_height="55dp"
+            android:background="@drawable/button"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="Далее"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            />
 
     </LinearLayout>
 </RelativeLayout>

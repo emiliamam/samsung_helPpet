@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/im"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#21214A"/>
+    <ImageView
+        android:id="@+id/verh_blue"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/im"
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/ic_wave__5_"
+        android:rotation="180"/>
+
+    <ProgressBar
+        android:layout_marginTop="-6dp"
+        android:id="@+id/pbReg"
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:progressTint="#0085FF"
+        android:progressBackgroundTint="#C4C4C4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/set_image_find"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_below="@+id/verh_blue"
+        android:layout_marginTop="-120dp">
+        <TextView
+            android:layout_width="300dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/verh_blue"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:text="Загрузите изображение питомца"
+            android:textColor="#21214A"
+            android:textSize="24sp" />
+        <ImageView
+            android:layout_marginTop="40dp"
+            android:id="@+id/ivPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/image_field"
+            android:layout_gravity="center"
+
+            />
+
+        <ImageButton
+            android:id="@+id/ibAddPhoto"
+            android:layout_width="49dp"
+            android:layout_height="47dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="-35dp"
+            android:background="@drawable/circle_button"
+            android:src="@drawable/ic_vector__add"
+            app:layout_constraintVertical_bias="0.861" />
+        <Button
+
+            android:layout_marginTop="25sp"
+            android:id="@+id/but_im"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:background="@drawable/button"
+            android:text="Далее" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/set_name_street_find"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_below="@+id/verh_blue"
+        android:layout_marginTop="-250dp">
+        <TextView
+            android:layout_width="300dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Введите данные"
+            android:layout_marginTop="45dp"
+            android:textColor="#21214A"
+            android:textSize="24sp" />
+        <EditText
+            android:id="@+id/category_find"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="80dp"
+            android:hint="Введите категорию животного"
+            android:maxLines="1"
+            android:textColor="#717171"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/name_metro_find"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:maxLines="1"
+            android:hint="Введите метро"
+            android:textColor="#717171"
+            android:textSize="18sp" />
+        <EditText
+            android:id="@+id/name_street_find"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:maxLines="1"
+            android:hint="Введите улицу и дом"
+            android:textColor="#717171"
+            android:textSize="18sp" />
+        <Button
+            android:layout_marginTop="25sp"
+            android:id="@+id/next_add_2"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:background="@drawable/button"
+            android:text="Далее" />
+    </LinearLayout>
+
+</RelativeLayout>
