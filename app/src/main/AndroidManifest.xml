@@ -50,6 +50,9 @@
         <activity
             android:name=".how_help"
             android:exported="true"/>
+        <activity
+            android:name=".add.AfterAdd"
+            android:exported="true"/>
     </application>
 
 </manifest>

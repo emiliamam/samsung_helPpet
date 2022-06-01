@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/im"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#21214A" />
+    <ImageView
+        android:id="@+id/verh_blue"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/im"
+        android:layout_marginTop="-10dp"
+        android:background="@drawable/ic_wave__5_"
+        android:rotation="180"/>
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/verh_blue"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="-50dp"
+        android:gravity="center"
+        android:text="Ваше объялвение успешно выложено"
+        android:textColor="#21214A"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/discl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login"
+        android:layout_centerInParent="true"
+
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Теперь Вы можете помочь остальным животным и просмотреть другие объявления"
+        android:textColor="#21214A"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/dicsl2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/discl"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Ваше выложенное объявление можете найти у себя в профиле"
+        android:textColor="#21214A"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/but_after_add"
+        android:layout_width="300dp"
+
+        android:layout_height="45dp"
+        android:layout_below="@id/dicsl2"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button"
+        android:text="Перейти к просмотру" />
+
+
+</RelativeLayout>

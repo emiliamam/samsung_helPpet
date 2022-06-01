@@ -8,7 +8,7 @@
         android:id="@+id/im"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="#21214A"/>
+        android:background="#21214A" />
     <ImageView
         android:id="@+id/verh_blue"
         android:layout_width="match_parent"
@@ -106,19 +106,19 @@
             android:textColor="#21214A"
             android:textSize="24sp" />
         <EditText
-            android:id="@+id/category"
+            android:id="@+id/category_lost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="80dp"
-            android:hint="Введите категорию животного"
+            android:hint="Введите вид животного"
             android:maxLines="1"
             android:textColor="#717171"
             android:textSize="18sp" />
 
 
         <EditText
-            android:id="@+id/name_anim"
+            android:id="@+id/name_anim_lost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -171,7 +171,7 @@
 
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/but_street_lost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name_anim"
