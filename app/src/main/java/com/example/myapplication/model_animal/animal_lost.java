@@ -12,6 +12,10 @@ public class animal_lost {
         this.street_home = street_home;
     }
 
+    public animal_lost() {
+
+    }
+
     public String getEmail_user() {
         return email_user;
     }

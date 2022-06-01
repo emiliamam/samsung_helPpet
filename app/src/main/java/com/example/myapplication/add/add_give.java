@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -30,6 +31,11 @@ public class add_give extends AppCompatActivity {
     LinearLayout set_name;
     LinearLayout set_street;
 
+    EditText category_give;
+    EditText name_anim_give;
+    EditText but_street_give;
+
+
     ProgressBar progressBar;
 
     int i=0;
@@ -46,6 +52,9 @@ public class add_give extends AppCompatActivity {
         next_add_2 = (Button) findViewById(R.id.next_add_give2);
 
         arrow_back = (ImageButton) findViewById(R.id.arrow_back_give);
+
+        category_give = (EditText) findViewById(R.id.category_give);
+        but_street_give = (EditText) findViewById(R.id.name_street_give);
 
         progressBar = (ProgressBar) findViewById(R.id.pb_give);
 

@@ -75,7 +75,7 @@ public class add_lost extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
         ref = database.getReference();
-        myref = ref.child("Lost_animal").child(mAuth.getCurrentUser().getUid()+System.currentTimeMillis());
+        myref = ref.child("Lost_animal").child(mAuth.getCurrentUser().getUid());
 //        myref = ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("email").setValue("все cool");
 
         String[] countries = {"Авиамоторная",

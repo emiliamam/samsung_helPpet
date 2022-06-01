@@ -3,6 +3,7 @@ package com.example.myapplication.Fragment_bottom_nav;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 //import com.example.myapplication.Adapter.CardAdapter;
 import com.example.myapplication.Add;
@@ -19,12 +21,19 @@ import com.example.myapplication.Login;
 import com.example.myapplication.Main_menu;
 import com.example.myapplication.Model.model;
 import com.example.myapplication.R;
+import com.example.myapplication.model_animal.animal_lost;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.huxq17.swipecardsview.SwipeCardsView;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,6 +49,7 @@ public class SearchFragment extends Fragment {
 
     private ImageButton add_search;
 
+    private DatabaseReference ref;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -89,13 +99,37 @@ public class SearchFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_search, container, false);
 
         FirebaseAuth mauth = FirebaseAuth.getInstance();
-
-        add_search = (ImageButton) v.findViewById(R.id.add_search);
+        TextView text_card_item = v.findViewById(R.id.text_card_item);
         s = new ArrayList<String >();
         s.add("one");
-        s.add("two");
-        s.add("three");
+//        s.add("two");
+//        s.add("three");
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        animal_lost animal_lost = new animal_lost();
+
+        ref = FirebaseDatabase.getInstance().getReference("Lost_animal");//.child(mAuth.getCurrentUser().getUid());
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @org.jetbrains.annotations.NotNull DataSnapshot snapshot) {
+                System.out.println(snapshot.child("email_user").getValue().toString());
+                animal_lost.setEmail_user(snapshot.child("email_user").getValue().toString());
+                animal_lost.setMetro(snapshot.child("metro").getValue().toString());
+                animal_lost.setName_anim(snapshot.child("name").getValue().toString());
+                animal_lost.setStreet_home(snapshot.child("street").getValue().toString());
+                animal_lost.setView(snapshot.child("category").getValue().toString());
+                System.out.println(animal_lost.getMetro());
+                s.add(animal_lost.getMetro());
+            }
+
+            @Override
+            public void onCancelled(@NonNull @org.jetbrains.annotations.NotNull DatabaseError error) {
+
+            }
+        });
+        add_search = (ImageButton) v.findViewById(R.id.add_search);
+
+        System.out.println(animal_lost.getMetro() + " " + animal_lost.getView());
         add_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +139,7 @@ public class SearchFragment extends Fragment {
         });
         SwipeFlingAdapterView swipeFlingAdapterView = (SwipeFlingAdapterView) v.findViewById(R.id.card);
         arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.carditem, R.id.text_card_item, s);
+
         swipeFlingAdapterView.setAdapter(arrayAdapter);
         swipeFlingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
