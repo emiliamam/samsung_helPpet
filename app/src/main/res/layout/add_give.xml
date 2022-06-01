@@ -117,15 +117,14 @@
             android:textColor="#717171"
             android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/name_metro_give"
+        <Spinner
+            android:layout_marginTop="20dp"
+            android:id="@+id/spinner_give"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:maxLines="1"
             android:hint="Введите метро"
+            android:maxLines="1"
             android:textColor="#717171"
             android:textSize="18sp" />
         <EditText

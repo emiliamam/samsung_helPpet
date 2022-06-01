@@ -47,6 +47,9 @@
         <activity
             android:name=".add.add_give"
             android:exported="true"/>
+        <activity
+            android:name=".how_help"
+            android:exported="true"/>
     </application>
 
 </manifest>
