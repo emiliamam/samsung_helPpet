@@ -4,7 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/User/AndroidStudioProjects/samsung_helPpet/app/src/main/res/layout/activity_main.xml" value="0.28396739130434784" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/samsung_helPpet/app/src/main/res/layout/add_find.xml" value="0.20153985507246377" />
         <entry key="..\:/Users/User/AndroidStudioProjects/samsung_helPpet/app/src/main/res/layout/carditem.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/samsung_helPpet/app/src/main/res/layout/fragment_hands.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/User/AndroidStudioProjects/samsung_helPpet/app/src/main/res/layout/fragment_lost.xml" value="0.20520833333333333" />
@@ -16,20 +15,25 @@
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/drawable-v24/button.xml" value="0.1125" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/drawable-v24/button_add.xml" value="0.1675925925925926" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/drawable-v24/button_add_press.xml" value="0.10885416666666667" />
+        <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/drawable-v24/circle_button.xml" value="0.16145833333333334" />
+        <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/drawable-v24/ic_vector__add.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/drawable-v24/image_field.xml" value="0.10052083333333334" />
+        <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/drawable-v24/image_field_empty.xml" value="0.10052083333333334" />
+        <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/drawable/add_circle.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/drawable/button_profile.xml" value="0.1675925925925926" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.20554272517321015" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/activity_main2.xml" value="0.1" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/add_find.xml" value="0.25" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/add_give.xml" value="0.22" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/add_lost.xml" value="0.25" />
-        <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/advertcarditem.xml" value="0.67" />
+        <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/advertcarditem.xml" value="0.33" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/after_add.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/carditem.xml" value="0.1" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/forget_password2.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/fragment_hands.xml" value="0.21" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/fragment_lost.xml" value="0.21" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/fragment_profile.xml" value="0.17" />
-        <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/fragment_search.xml" value="0.1" />
+        <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/fragment_search.xml" value="0.22" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/how_help.xml" value="0.18" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/main_menu.xml" value="0.22" />
         <entry key="..\:/Users/emilk/Downloads/MyApplication2/app/src/main/res/layout/registration.xml" value="0.18" />

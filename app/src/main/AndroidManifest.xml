@@ -42,10 +42,10 @@
             android:name=".add.add_lost"
             android:exported="true"/>
         <activity
-            android:name=".add.add_find"
+            android:name=".add.add_give"
             android:exported="true"/>
         <activity
-            android:name=".add.add_give"
+            android:name=".add.add_find"
             android:exported="true"/>
         <activity
             android:name=".how_help"

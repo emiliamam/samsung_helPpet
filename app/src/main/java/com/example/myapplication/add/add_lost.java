@@ -2,6 +2,7 @@ package com.example.myapplication.add;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.myapplication.Add;
 import com.example.myapplication.AfterAdd;
@@ -347,14 +349,13 @@ public class add_lost extends AppCompatActivity {
         but_im.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                i=1;
-
+                i = 1;
                 progressBar.setProgress(i);
                 set_image.setVisibility(View.INVISIBLE);
                 set_name.setVisibility(View.VISIBLE);
                 set_street.setVisibility(View.INVISIBLE);
-
             }
+
         });
         next_add_2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -362,24 +363,45 @@ public class add_lost extends AppCompatActivity {
                 i=2;
                 category=category_lost.getText().toString();
                 name = name_anim_lost.getText().toString();
+                if(category.isEmpty()){
+                    System.out.println("пусто");
+                    category_lost.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(), R.color.red));
+                }else{
+                    progressBar.setProgress(i);
+                    set_image.setVisibility(View.INVISIBLE);
+                    set_name.setVisibility(View.INVISIBLE);
+                    set_street.setVisibility(View.VISIBLE);
+                }
+                System.out.println(category + "это категори");
+                if(name.isEmpty()){
+                    name_anim_lost.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(), R.color.red));
+                }else {
+                    progressBar.setProgress(i);
+                    set_image.setVisibility(View.INVISIBLE);
+                    set_name.setVisibility(View.INVISIBLE);
+                    set_street.setVisibility(View.VISIBLE);
+                }
 
-                progressBar.setProgress(i);
-                set_image.setVisibility(View.INVISIBLE);
-                set_name.setVisibility(View.INVISIBLE);
-                set_street.setVisibility(View.VISIBLE);
             }
         });
         next_add_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase.getInstance().getReference().child("Lost_animal").push().setValue(
-                        new animal_lost(FirebaseAuth.getInstance().getCurrentUser().getEmail(),
-                                category,
-                                name,
-                                metro,
-                                but_street_lost.getText().toString())
-                );
-                startActivity(new Intent(add_lost.this, AfterAdd.class));
+                if (but_street_lost.getText().toString().isEmpty()) {
+                    but_street_lost.setBackgroundTintList(ContextCompat.getColorStateList(getApplicationContext(), R.color.red));
+
+                } else {
+                    FirebaseDatabase.getInstance().getReference().child("Lost_animal").push().setValue(
+                            new animal_lost(FirebaseAuth.getInstance().getCurrentUser().getEmail(),
+                                    upload_uri.toString(),
+                                    name,
+                                    category,
+                                    metro,
+                                    but_street_lost.getText().toString())
+                    );
+                    System.out.println(upload_uri.toString());
+                    startActivity(new Intent(add_lost.this, AfterAdd.class));
+                }
             }
         });
 

@@ -1,5 +1,6 @@
 package com.example.myapplication.Fragment_bottom_nav;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.myapplication.Adapter.Animal_adapter;
+import com.example.myapplication.Add;
 import com.example.myapplication.R;
 import com.example.myapplication.add.add_lost;
 import com.example.myapplication.model_animal.animal_lost;
@@ -35,6 +37,8 @@ public class LostFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+    private ImageButton add;
+
     Animal_adapter animal_adapter;
 
     public LostFragment() {
@@ -64,6 +68,7 @@ public class LostFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_lost, container, false);
 
         RecyclerView recyclerView = v.findViewById(R.id.recyclerview);
+        add = v.findViewById(R.id.add_lost);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         FirebaseRecyclerOptions<animal_lost> options =
@@ -75,6 +80,13 @@ public class LostFragment extends Fragment {
         System.out.println("adapter"+animal_adapter);
         recyclerView.setAdapter(animal_adapter);
 
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LostFragment.this.getActivity(), Add.class));
+
+            }
+        });
         return v;
 
     }

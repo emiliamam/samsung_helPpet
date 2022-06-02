@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment_bottom_nav.HandsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -27,8 +26,9 @@
 
             android:id="@+id/add_hands"
             android:layout_width="40dp"
+            android:src="@drawable/ic_vector__add"
             android:layout_height="40dp"
-            android:background="@drawable/add"
+            android:background="@drawable/add_circle"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
             />
@@ -58,18 +58,10 @@
 
         />
     </RelativeLayout>
-<!--    </LinearLayout>-->
-<!--    <TextView-->
-<!--        android:id="@+id/something_wrong"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200"-->
-<!--        android:layout_below="@id/lim"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:layout_marginStart="35dp"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:gravity="center"-->
-<!--        android:text="Неккоректно введены данные"-->
-
-<!--        android:textColor="#FF0000" />-->
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recyclerview_hands"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="130dp"/>
 
 </FrameLayout>

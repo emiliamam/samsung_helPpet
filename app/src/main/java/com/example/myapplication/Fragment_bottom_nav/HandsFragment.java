@@ -1,45 +1,38 @@
 package com.example.myapplication.Fragment_bottom_nav;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.myapplication.Adapter.Animal_adapter;
+import com.example.myapplication.Adapter.Animal_adapter_hands;
+import com.example.myapplication.Add;
 import com.example.myapplication.R;
+import com.example.myapplication.model_animal.animal_give;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HandsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HandsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    ImageButton add;
+    Animal_adapter_hands animal_adapter;
 
     public HandsFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HandsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static HandsFragment newInstance(String param1, String param2) {
         HandsFragment fragment = new HandsFragment();
         Bundle args = new Bundle();
@@ -62,9 +55,40 @@ public class HandsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_search, container, false);
+        View v = inflater.inflate(R.layout.fragment_hands, container, false);
+        RecyclerView recyclerView = v.findViewById(R.id.recyclerview_hands);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ImageButton add_hands = (ImageButton) v.findViewById(R.id.add_search);
-        return inflater.inflate(R.layout.fragment_hands, container, false);
+        add = v.findViewById(R.id.add_hands);
+
+        FirebaseRecyclerOptions<animal_give> options =
+                new FirebaseRecyclerOptions.Builder<animal_give>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Give_animal"), animal_give.class)
+                        .build();
+        animal_adapter = new Animal_adapter_hands(options);
+
+        System.out.println("adapter "+animal_adapter);
+        recyclerView.setAdapter(animal_adapter);
+
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HandsFragment.this.getActivity(), Add.class));
+
+            }
+        });
+        return v;
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        animal_adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        animal_adapter.stopListening();
     }
 }

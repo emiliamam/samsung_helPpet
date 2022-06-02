@@ -28,8 +28,9 @@
         <ImageButton
             android:id="@+id/add_search"
             android:layout_width="40dp"
+            android:src="@drawable/ic_vector__add"
             android:layout_height="40dp"
-            android:background="@drawable/add"
+            android:background="@drawable/add_circle"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"/>
     </LinearLayout>

@@ -114,6 +114,7 @@
             android:layout_marginTop="80dp"
             android:hint="Введите вид животного"
             android:maxLines="1"
+            android:minLines="1"
             android:textColor="#717171"
             android:textSize="18sp" />
 
@@ -123,6 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:minLines="1"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:maxLines="1"
@@ -175,6 +177,7 @@
             android:id="@+id/but_street_lost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minLines="1"
             android:layout_below="@+id/name_anim"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"

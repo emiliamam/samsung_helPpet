@@ -2,15 +2,26 @@ package com.example.myapplication.model_animal;
 
 public class animal_give {
 
-    private String email_user, name_anim, view, description, metro, street_home;
+    private String email_user, upload_uri, name_anim, view, description, metro, street_home;
 
-    public animal_give(String email_user, String name_anim, String view, String description, String metro, String street_home) {
-        this.email_user = email_user;
-        this.name_anim = name_anim;
-        this.view = view;
+
+    public animal_give(String email, String upload_uri, String category, String name, String description, String street, String metro) {
+        this.email_user = email;
+        this.upload_uri = upload_uri;
+        this.view = category;
+        this.name_anim = name;
         this.description = description;
+        this.street_home = street;
         this.metro = metro;
-        this.street_home = street_home;
+    }
+    public animal_give(){}
+
+    public String getUpload_uri() {
+        return upload_uri;
+    }
+
+    public void setUpload_uri(String upload_uri) {
+        this.upload_uri = upload_uri;
     }
 
     public String getEmail_user() {

@@ -23,28 +23,28 @@
         android:layout_marginTop="30dp"
         android:layout_marginStart="10dp"
         >
-    <ImageButton
-        android:id="@+id/arrow_back_find"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        <ImageButton
+            android:id="@+id/arrow_back_give"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
 
-        android:background="@drawable/arrow"/>
+            android:background="@drawable/arrow"/>
     </LinearLayout>
-    <ProgressBar
 
-        android:layout_marginTop="-6dp"
-        android:id="@+id/pb_find"
+    <ProgressBar
+        android:id="@+id/pb_give"
         style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
+
+        android:layout_marginTop="-6dp"
+        android:progressBackgroundTint="#C4C4C4"
         android:progressTint="#9335FF"
-        android:progressBackgroundTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <LinearLayout
-        android:id="@+id/set_image_find"
+        android:id="@+id/set_image_give"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -63,34 +63,35 @@
             android:textSize="24sp" />
         <ImageView
             android:layout_marginTop="40dp"
-            android:id="@+id/ivPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/ivPhoto_find"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:background="@drawable/image_field"
             android:layout_gravity="center"
 
             />
 
         <ImageButton
-            android:id="@+id/ibAddPhoto_give"
+            android:id="@+id/ibAddPhoto_find"
             android:layout_width="49dp"
             android:layout_height="47dp"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/circle_button"
+            android:onClick="OnClickChooseImage"
             android:src="@drawable/ic_vector__add"
             app:layout_constraintVertical_bias="0.861" />
         <Button
 
             android:layout_marginTop="25sp"
-            android:id="@+id/but_im_find"
+            android:id="@+id/but_im_give"
             android:layout_width="300dp"
             android:layout_height="45dp"
             android:background="@drawable/button"
             android:text="Далее" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/set_name_find"
+        android:id="@+id/set_name_give"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -107,7 +108,7 @@
             android:textColor="#21214A"
             android:textSize="24sp" />
         <EditText
-            android:id="@+id/category_find"
+            android:id="@+id/category_give"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -117,60 +118,9 @@
             android:textColor="#717171"
             android:textSize="18sp" />
 
-
-        <EditText
-            android:id="@+id/name_anim_find"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:maxLines="1"
-            android:hint="Введите кличку питомца"
-            android:textColor="#717171"
-            android:textSize="18sp" />
-        <EditText
-            android:id="@+id/about_anim_find"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:maxLines="1"
-            android:hint="Введите описание"
-            android:textColor="#717171"
-            android:textSize="18sp" />
-        <Button
-            android:layout_marginTop="25sp"
-            android:id="@+id/next_add_find2"
-            android:layout_width="300dp"
-            android:layout_height="45dp"
-            android:background="@drawable/button"
-            android:text="Далее" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/set_street_find"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/verh_blue"
-        android:layout_marginTop="-250dp"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/verh_blue"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="45dp"
-            android:gravity="center"
-            android:text="Введите данные"
-            android:textColor="#21214A"
-            android:textSize="24sp" />
-
         <Spinner
-            android:id="@+id/spinner_find"
+            android:layout_marginTop="20dp"
+            android:id="@+id/spinner_give"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -178,27 +128,24 @@
             android:maxLines="1"
             android:textColor="#717171"
             android:textSize="18sp" />
-
-
         <EditText
-            android:id="@+id/street_find"
+            android:id="@+id/name_street_give"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name_anim"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
-            android:hint="Введите улицу и дом"
             android:maxLines="1"
+            android:hint="Введите улицу и дом"
             android:textColor="#717171"
             android:textSize="18sp" />
-
         <Button
-            android:id="@+id/next_add_give3"
+            android:layout_marginTop="25sp"
+            android:id="@+id/next_add_give2"
             android:layout_width="300dp"
             android:layout_height="45dp"
-            android:layout_marginTop="25sp"
             android:background="@drawable/button"
             android:text="Далее" />
     </LinearLayout>
+
 </RelativeLayout>

@@ -2,8 +2,6 @@ package com.example.myapplication.Adapter;
 
 //import static android.os.Build.VERSION_CODES.R;
 
-import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,21 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.model_animal.animal_lost;
+import com.example.myapplication.model_animal.animal_give;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
+public class Animal_adapter_hands extends FirebaseRecyclerAdapter<animal_give, Animal_adapter_hands.myviewholder> {
 
-public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_adapter.myviewholder> {
-
-    public Animal_adapter(@NonNull FirebaseRecyclerOptions<animal_lost> options) {
+    public Animal_adapter_hands(@NonNull FirebaseRecyclerOptions<animal_give> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull animal_lost model) {
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull animal_give model) {
         holder.name.setText(model.getName_anim());
         holder.street.setText((model.getMetro()+", "+model.getStreet_home()));
         Picasso.get().load(model.getUpload_uri()).into(holder.img_uri);

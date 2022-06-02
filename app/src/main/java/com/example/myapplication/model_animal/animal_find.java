@@ -2,18 +2,28 @@ package com.example.myapplication.model_animal;
 
 public class animal_find {
 
-    private String email_user, view, metro, street_home;
+    private String email_user,upload_uri, view, metro, street_home;
 
-    public animal_find(String email_user, String view, String metro, String street_home) {
+    public animal_find(String email_user, String upload_uri, String view, String metro, String street_home) {
         this.email_user = email_user;
+        this.upload_uri = upload_uri;
         this.view = view;
         this.metro = metro;
         this.street_home = street_home;
+    }
+    public String getUpload_uri() {
+        return upload_uri;
+    }
+
+    public void setUpload_uri(String upload_uri) {
+        this.upload_uri = upload_uri;
     }
 
     public animal_find() {
 
     }
+
+
 
     public String getEmail_user() {
         return email_user;

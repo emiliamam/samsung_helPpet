@@ -1,11 +1,20 @@
 package com.example.myapplication.model_animal;
 
+import android.net.Uri;
+
 public class animal_lost {
 
-    private String email_user, name_anim, view, metro, street_home;
+    private String email_user;
+    private String upload_uri;
+    private String name_anim;
+    private String view;
+    private String metro;
+    private String street_home;
 
-    public animal_lost(String email_user, String name_anim, String view, String metro, String street_home) {
+
+    public animal_lost(String email_user, String upload_uri, String name_anim, String view, String metro, String street_home) {
         this.email_user = email_user;
+        this.upload_uri = upload_uri;
         this.name_anim = name_anim;
         this.view = view;
         this.metro = metro;
@@ -16,12 +25,6 @@ public class animal_lost {
 
     }
 
-    public animal_lost(String email, String category_anim, String name_anim, String metro) {
-        this.email_user = email;
-        this.view = category_anim;
-        this.name_anim = name_anim;
-        this.metro = metro;
-    }
 
     public String getEmail_user() {
         return email_user;
@@ -62,4 +65,12 @@ public class animal_lost {
     public void setStreet_home(String street_home) {
         this.street_home = street_home;
     }
+    public String getUpload_uri() {
+        return upload_uri;
+    }
+
+    public void setUpload_uri(String upload_uri) {
+        this.upload_uri = upload_uri;
+    }
+
 }

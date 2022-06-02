@@ -9,8 +9,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.add.add_find;
 import com.example.myapplication.add.add_give;
+import com.example.myapplication.add.add_find;
 import com.example.myapplication.add.add_lost;
 
 public class Add extends AppCompatActivity {
@@ -87,9 +87,9 @@ public class Add extends AppCompatActivity {
                 if(number==1){
                     startActivity(new Intent(Add.this, add_lost.class));
                 }else if(number==2){
-                    startActivity(new Intent(Add.this, add_give.class));
-                }else if(number==3){
                     startActivity(new Intent(Add.this, add_find.class));
+                }else if(number==3){
+                    startActivity(new Intent(Add.this, add_give.class));
                 }
             }
         });
