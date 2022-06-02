@@ -316,8 +316,6 @@ public class add_lost extends AppCompatActivity {
 
                         Object item = parent.getItemAtPosition(pos);
                         metro=item.toString();
-//                        myref.child("metro").setValue(item.toString());
-//                        System.out.println(item.toString());     //prints the text in spinner item.
 
                     }
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -350,9 +348,6 @@ public class add_lost extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 i=1;
-//                myref.child("category").setValue(category_lost.getText().toString());
-//                myref.child("name").setValue(name_anim_lost.getText().toString());
-//                System.out.println("its categoru: "+category_lost.getText().toString());
 
                 progressBar.setProgress(i);
                 set_image.setVisibility(View.INVISIBLE);
@@ -365,10 +360,6 @@ public class add_lost extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 i=2;
-//                myref.child("street").setValue(but_street_lost.getText().toString());
-//                myref.child("category").setValue(category_lost.getText().toString());
-//                myref.child("name").setValue(name_anim_lost.getText().toString());
-//                myref.child("email_user").setValue(mAuth.getCurrentUser().getUid());
                 category=category_lost.getText().toString();
                 name = name_anim_lost.getText().toString();
 

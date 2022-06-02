@@ -12,46 +12,40 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.model_animal.animal_lost;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+
 import java.util.List;
 
-public class Animal_adapter extends RecyclerView.Adapter<Animal_adapter.MyViewHolder> {
-    String name[], street[];
-    Context context;
+public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_adapter.myviewholder> {
 
-    public Animal_adapter(String[] name, String[] street, Context context) {
-        this.name = name;
-        this.street = street;
-        this.context = context;
+    public Animal_adapter(@NonNull FirebaseRecyclerOptions<animal_lost> options) {
+        super(options);
+    }
+
+    @Override
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull animal_lost model) {
+        holder.name.setText(model.getName_anim());
+        holder.street.setText((model.getMetro()+", "+model.getStreet_home()));
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.advertcarditem, parent,false);
-        return new MyViewHolder(view);
+    public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.advertcarditem, parent, false);
+        return new myviewholder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name.setText(name[position]);
-        holder.street.setText(street[position]);
+    public class myviewholder extends RecyclerView.ViewHolder{
 
-    }
+        TextView name, street;
 
-    @Override
-    public int getItemCount() {
-        System.out.println(name.length + "lenght");
-        return name.length;
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name,street;
-
-        public MyViewHolder(@NonNull View itemView) {
+        public myviewholder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.title_anim);
             street = itemView.findViewById(R.id.street_anim);
         }
     }
+
 }

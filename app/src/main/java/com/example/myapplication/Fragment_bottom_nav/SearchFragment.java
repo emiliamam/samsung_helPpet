@@ -21,6 +21,7 @@ import com.example.myapplication.Login;
 import com.example.myapplication.Main_menu;
 import com.example.myapplication.Model.model;
 import com.example.myapplication.R;
+import com.example.myapplication.model_animal.animal_find;
 import com.example.myapplication.model_animal.animal_lost;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -110,22 +111,20 @@ public class SearchFragment extends Fragment {
 //        s.add("three");
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        List<animal_lost> modellist = new ArrayList<animal_lost>();
-        animal_lost animal_lost = new animal_lost();
+        List<animal_find> modellist = new ArrayList<animal_find>();
+        animal_find animal_find = new animal_find();
 
         ref = FirebaseDatabase.getInstance().getReference("Find_animal").child(mAuth.getCurrentUser().getUid());
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @org.jetbrains.annotations.NotNull DataSnapshot snapshot) {
                 System.out.println(snapshot.child("email_user").getValue().toString());
-                animal_lost.setEmail_user(snapshot.child("email_user").getValue().toString());
-                animal_lost.setMetro(snapshot.child("metro").getValue().toString());
-//                animal_lost.setName_anim(snapshot.child("name").getValue().toString());
-                animal_lost.setStreet_home(snapshot.child("street").getValue().toString());
-                animal_lost.setView(snapshot.child("category").getValue().toString());
-                System.out.println(animal_lost.getMetro());
-                s.add(animal_lost.getName_anim());
-                s2.add(animal_lost.getStreet_home());
+                animal_find.setEmail_user(snapshot.child("email_user").getValue().toString());
+                animal_find.setMetro(snapshot.child("metro").getValue().toString());
+                animal_find.setStreet_home(snapshot.child("street").getValue().toString());
+                animal_find.setView(snapshot.child("category").getValue().toString());
+                System.out.println(animal_find.getMetro());
+                s.add(animal_find.getStreet_home());
             }
 
             @Override
@@ -135,7 +134,7 @@ public class SearchFragment extends Fragment {
         });
         add_search = (ImageButton) v.findViewById(R.id.add_search);
 
-        System.out.println(animal_lost.getMetro() + " " + animal_lost.getView());
+//        System.out.println(animal_lost.getMetro() + " " + animal_lost.getView());
         add_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -146,7 +145,6 @@ public class SearchFragment extends Fragment {
 
         SwipeFlingAdapterView swipeFlingAdapterView = (SwipeFlingAdapterView) v.findViewById(R.id.card);
         arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.carditem, R.id.text_card_item, s);
-        arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.carditem, R.id.street, s2);
 
         swipeFlingAdapterView.setAdapter(arrayAdapter);
         swipeFlingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {

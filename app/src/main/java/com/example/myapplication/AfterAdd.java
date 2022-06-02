@@ -26,7 +26,7 @@ public class AfterAdd extends AppCompatActivity {
         but_after_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AfterAdd.this, SearchFragment.class));
+                startActivity(new Intent(AfterAdd.this, Main_menu.class));
             }
         });
 

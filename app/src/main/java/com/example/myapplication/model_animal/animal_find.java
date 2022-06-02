@@ -11,6 +11,10 @@ public class animal_find {
         this.street_home = street_home;
     }
 
+    public animal_find() {
+
+    }
+
     public String getEmail_user() {
         return email_user;
     }

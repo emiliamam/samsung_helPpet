@@ -68,8 +68,8 @@ public class Main_menu extends AppCompatActivity {
                     break;
 
                 case R.id.lost:
-//                    ReplaceFragment(new LostFragment());
-                    startActivity(new Intent(Main_menu.this, TestTest.class));
+                    ReplaceFragment(new LostFragment());
+//                    startActivity(new Intent(Main_menu.this, TestTest.class));
                     break;
 
                 case R.id.profile:

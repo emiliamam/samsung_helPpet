@@ -18,13 +18,13 @@ import com.example.myapplication.Fragment_bottom_nav.ProfileFragment;
 import com.example.myapplication.Fragment_bottom_nav.SearchFragment;
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.example.myapplication.model_animal.animal_lost;
-import com.firebase.ui.database.FirebaseListAdapter;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.firebase.ui.database.FirebaseListAdapter;
+//import com.google.firebase.database.FirebaseDatabase;
 
 public class TestTest extends AppCompatActivity {
     Button next;
     View bottom_layout;
-    FirebaseListAdapter<animal_lost> adapter;
+//    FirebaseListAdapter<animal_lost> adapter;
     ActivityMainBinding binding;
 
 
@@ -35,7 +35,7 @@ public class TestTest extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
-        displayallanimal();
+//        displayallanimal();
 
 
         binding.bottomNavig.setOnItemSelectedListener(item -> {
@@ -71,18 +71,18 @@ public class TestTest extends AppCompatActivity {
 
     }
 
-    private void displayallanimal() {
-        ListView list_lost = findViewById(R.id.list_test);
-
-        adapter = new FirebaseListAdapter<animal_lost>(TestTest.this, animal_lost.class, R.layout.advertcarditem, FirebaseDatabase.getInstance().getReference().child("Lost_animal")) {
-            @Override
-            protected void populateView(View view, animal_lost model, int position) {
-                TextView name_anim, street;
-                name_anim = view.findViewById(R.id.title_anim);
-                street = view.findViewById(R.id.street_anim);
-                name_anim.setText(model.getName_anim());
-                street.setText(model.getStreet_home());
-            }
-        };list_lost.setAdapter(adapter);
-    }
+//    private void displayallanimal() {
+//        ListView list_lost = findViewById(R.id.list_test);
+//
+//        adapter = new FirebaseListAdapter<animal_lost>(TestTest.this, animal_lost.class, R.layout.advertcarditem, FirebaseDatabase.getInstance().getReference().child("Lost_animal")) {
+//            @Override
+//            protected void populateView(View view, animal_lost model, int position) {
+//                TextView name_anim, street;
+//                name_anim = view.findViewById(R.id.title_anim);
+//                street = view.findViewById(R.id.street_anim);
+//                name_anim.setText(model.getName_anim());
+//                street.setText(model.getStreet_home());
+//            }
+//        };list_lost.setAdapter(adapter);
+//    }
 }

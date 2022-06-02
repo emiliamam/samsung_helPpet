@@ -3,8 +3,10 @@ package com.example.myapplication.add;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -14,7 +16,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Add;
+import com.example.myapplication.AfterAdd;
 import com.example.myapplication.R;
+import com.example.myapplication.model_animal.animal_lost;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class add_find extends AppCompatActivity {
     Button next;
@@ -29,6 +35,14 @@ public class add_find extends AppCompatActivity {
     LinearLayout set_image;
     LinearLayout set_name;
     LinearLayout set_street;
+
+    EditText category_find;
+    EditText name_find;
+    EditText description_find;
+    EditText street_find;
+
+
+    String category, email_user, metro, street, name, description;
 
     ProgressBar progressBar;
 
@@ -45,6 +59,12 @@ public class add_find extends AppCompatActivity {
 
         but_im = (Button) findViewById(R.id.but_im_find);
         next_add_2 = (Button) findViewById(R.id.next_add_find2);
+
+        category_find = (EditText) findViewById(R.id.category_find);
+        name_find = (EditText) findViewById(R.id.name_anim_find);
+        description_find = (EditText) findViewById(R.id.about_anim_find);
+        street_find = (EditText) findViewById(R.id.street_find);
+
 
         arrow_back_find = (ImageButton) findViewById(R.id.arrow_back_find);
 
@@ -257,6 +277,18 @@ public class add_find extends AppCompatActivity {
                     return super.getItem(position);
             }
         };
+        spinner.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+                        Object item = parent.getItemAtPosition(pos);
+                        metro=item.toString();
+
+                    }
+                    public void onNothingSelected(AdapterView<?> parent) {
+                    }
+                });
+
         stringListAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(stringListAdapter);
         spinner.setSelection(countries.length);
@@ -289,6 +321,7 @@ public class add_find extends AppCompatActivity {
                 set_name.setVisibility(View.VISIBLE);
                 set_street.setVisibility(View.INVISIBLE);
 
+
             }
         });
         next_add_2.setOnClickListener(new View.OnClickListener() {
@@ -300,6 +333,16 @@ public class add_find extends AppCompatActivity {
                 set_image.setVisibility(View.INVISIBLE);
                 set_name.setVisibility(View.INVISIBLE);
                 set_street.setVisibility(View.VISIBLE);
+                category = category_find.getText().toString();
+//                FirebaseDatabase.getInstance().getReference().child("Give_animal").push().setValue(
+//                        new animal_lost(FirebaseAuth.getInstance().getCurrentUser().getEmail(),
+//                                category,
+//                                name,
+//                                metro,
+//                                but_street_lost.getText().toString())
+//                );
+                startActivity(new Intent(add_find.this, AfterAdd.class));
+
             }
         });
 
