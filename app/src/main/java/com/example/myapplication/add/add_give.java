@@ -1,8 +1,10 @@
 package com.example.myapplication.add;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +17,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Add;
+import com.example.myapplication.AfterAdd;
 import com.example.myapplication.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class add_give extends AppCompatActivity {
     Button next;
@@ -35,6 +43,12 @@ public class add_give extends AppCompatActivity {
     EditText name_anim_give;
     EditText but_street_give;
 
+    private FirebaseAuth mAuth;
+    private DatabaseReference ref;
+    private DatabaseReference myref;
+    private FirebaseDatabase database;
+    private StorageReference storageRef;
+    private Uri upload_uri;
 
     ProgressBar progressBar;
 
@@ -56,9 +70,19 @@ public class add_give extends AppCompatActivity {
         category_give = (EditText) findViewById(R.id.category_give);
         but_street_give = (EditText) findViewById(R.id.name_street_give);
 
+
+
         progressBar = (ProgressBar) findViewById(R.id.pb_give);
 
         set_name.setVisibility(View.INVISIBLE);
+
+        mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+
+        storageRef = FirebaseStorage.getInstance().getReference("Image_find");
+
+        ref = database.getReference();
+        myref = ref.child("Find_animal").child(mAuth.getCurrentUser().getUid());
 
         progressBar.setMax(2);
         String[] countries = {"Авиамоторная",
@@ -250,6 +274,18 @@ public class add_give extends AppCompatActivity {
         };
 
         Spinner spinner = findViewById(R.id.spinner_give);
+        spinner.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+                        Object item = parent.getItemAtPosition(pos);
+                        myref.child("metro").setValue(item.toString());
+                        System.out.println(item.toString());     //prints the text in spinner item.
+
+                    }
+                    public void onNothingSelected(AdapterView<?> parent) {
+                    }
+                });
 
         ArrayAdapter<String> stringListAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, countries) {
@@ -300,11 +336,14 @@ public class add_give extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 i=2;
+                myref.child("category").setValue(category_give.getText().toString());
+                myref.child("street").setValue(but_street_give.getText().toString());
+                myref.child("email_user").setValue(mAuth.getCurrentUser().getUid());
                 progressBar.setProgress(i);
-                set_image.setVisibility(View.INVISIBLE);
-                set_name.setVisibility(View.VISIBLE);
+                startActivity(new Intent(add_give.this, AfterAdd.class));
             }
         });
+//        next_add_3.setOnClickListener();
 
     }
 

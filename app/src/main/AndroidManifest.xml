@@ -51,7 +51,10 @@
             android:name=".how_help"
             android:exported="true"/>
         <activity
-            android:name=".add.AfterAdd"
+            android:name=".AfterAdd"
+            android:exported="true"/>
+        <activity
+            android:name=".TestTest"
             android:exported="true"/>
     </application>
 

@@ -16,6 +16,13 @@ public class animal_lost {
 
     }
 
+    public animal_lost(String email, String category_anim, String name_anim, String metro) {
+        this.email_user = email;
+        this.view = category_anim;
+        this.name_anim = name_anim;
+        this.metro = metro;
+    }
+
     public String getEmail_user() {
         return email_user;
     }

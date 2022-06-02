@@ -10,8 +10,9 @@
     <ImageView
         android:id="@+id/verh1"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/verh1" />
+        android:layout_height="300dp"
+        android:src="@drawable/verh1"
+        android:layout_marginTop="-100dp"/>
 
 
     <ImageView
@@ -19,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/verh1"
-        android:layout_marginTop="-668dp"
+        android:layout_marginTop="-568dp"
         android:src="@drawable/verh" />
 
     <TextView

@@ -1,26 +1,41 @@
 package com.example.myapplication.add;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.Add;
+import com.example.myapplication.AfterAdd;
 import com.example.myapplication.R;
+import com.example.myapplication.model_animal.animal_lost;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
 
 public class add_lost extends AppCompatActivity {
     Button next;
@@ -30,7 +45,9 @@ public class add_lost extends AppCompatActivity {
     Button next_add_2;
     Button next_add_3;
 
+    ImageButton ibAddPhoto_lost;
     ImageButton arrow_back;
+
     LinearLayout set_image;
     LinearLayout set_name;
     LinearLayout set_street;
@@ -41,11 +58,17 @@ public class add_lost extends AppCompatActivity {
     EditText name_anim_lost;
     EditText but_street_lost;
 
+    ImageView ivPhoto;
+    String category;
+    String name;
+    String metro;
+
     private FirebaseAuth mAuth;
     private DatabaseReference ref;
     private DatabaseReference myref;
     private FirebaseDatabase database;
-
+    private StorageReference storageRef;
+    private Uri upload_uri;
     int i=0;
 
     @Override
@@ -61,6 +84,7 @@ public class add_lost extends AppCompatActivity {
         but_im = (Button) findViewById(R.id.but_im);
         next_add_2 = (Button) findViewById(R.id.next_add_2);
         next_add_3 = (Button) findViewById(R.id.next_add_3);
+        ibAddPhoto_lost = (ImageButton) findViewById(R.id.ibAddPhoto_lost);
 
         arrow_back = (ImageButton) findViewById(R.id.arrow_back_lost);
 
@@ -68,13 +92,16 @@ public class add_lost extends AppCompatActivity {
         name_anim_lost = (EditText) findViewById(R.id.name_anim_lost);
         but_street_lost = (EditText) findViewById(R.id.but_street_lost);
 
-
+        ivPhoto = (ImageView) findViewById(R.id.ivPhoto);
         progressBar = (ProgressBar) findViewById(R.id.pb_lost);
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
+        storageRef = FirebaseStorage.getInstance().getReference("Image_lost");
+
         ref = database.getReference();
+
         myref = ref.child("Lost_animal").child(mAuth.getCurrentUser().getUid());
 //        myref = ref.child("Users").child(mAuth.getCurrentUser().getUid()).child("email").setValue("все cool");
 
@@ -288,8 +315,9 @@ public class add_lost extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 
                         Object item = parent.getItemAtPosition(pos);
-                        myref.child("metro").setValue(item.toString());
-                        System.out.println(item.toString());     //prints the text in spinner item.
+                        metro=item.toString();
+//                        myref.child("metro").setValue(item.toString());
+//                        System.out.println(item.toString());     //prints the text in spinner item.
 
                     }
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -338,9 +366,11 @@ public class add_lost extends AppCompatActivity {
             public void onClick(View view) {
                 i=2;
 //                myref.child("street").setValue(but_street_lost.getText().toString());
-                myref.child("category").setValue(category_lost.getText().toString());
-                myref.child("name").setValue(name_anim_lost.getText().toString());
-                myref.child("email_user").setValue(mAuth.getCurrentUser().getUid());
+//                myref.child("category").setValue(category_lost.getText().toString());
+//                myref.child("name").setValue(name_anim_lost.getText().toString());
+//                myref.child("email_user").setValue(mAuth.getCurrentUser().getUid());
+                category=category_lost.getText().toString();
+                name = name_anim_lost.getText().toString();
 
                 progressBar.setProgress(i);
                 set_image.setVisibility(View.INVISIBLE);
@@ -351,7 +381,13 @@ public class add_lost extends AppCompatActivity {
         next_add_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myref.child("street").setValue(but_street_lost.getText().toString());
+                FirebaseDatabase.getInstance().getReference().child("Lost_animal").push().setValue(
+                        new animal_lost(FirebaseAuth.getInstance().getCurrentUser().getEmail(),
+                                category,
+                                name,
+                                metro,
+                                but_street_lost.getText().toString())
+                );
                 startActivity(new Intent(add_lost.this, AfterAdd.class));
             }
         });
@@ -364,4 +400,52 @@ public class add_lost extends AppCompatActivity {
         lin_not_hidden2.setVisibility(View.INVISIBLE);
 
     }
+    public void OnClickChooseImage(View view){
+        getImage();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1 && data.getData()!=null){
+            if(resultCode == RESULT_OK){
+                Log.d("MyLog", "IMAGE URI" + data.getData());
+//                upload_image();
+                System.out.println(ivPhoto.getDrawable());
+                ivPhoto.setImageURI(data.getData());
+                upload_image();
+                System.out.println(ivPhoto.getDrawable());
+            }
+        }
+    }
+    private void upload_image(){
+        System.out.println(ivPhoto.getDrawable());
+        Bitmap bitmap = ((BitmapDrawable) ivPhoto.getDrawable()).getBitmap();
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] byte_array = baos.toByteArray();
+        final StorageReference myref = storageRef.child(System.currentTimeMillis()+"my_image");
+        UploadTask uploadTask = myref.putBytes(byte_array);
+        Task<Uri> task = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            @Override
+            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                return myref.getDownloadUrl();
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                upload_uri = task.getResult();
+            }
+        });
+
+    }
+
+    private void getImage(){
+        Intent intentChooser = new Intent();
+        intentChooser.setType("image/");
+        intentChooser.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intentChooser, 1);
+    }
+
 }

@@ -44,6 +44,8 @@ public class SearchFragment extends Fragment {
 
 
     ArrayList<String> s;
+    ArrayList<String> s2;
+
     ArrayAdapter arrayAdapter;
     int n=0;
 
@@ -101,25 +103,29 @@ public class SearchFragment extends Fragment {
         FirebaseAuth mauth = FirebaseAuth.getInstance();
         TextView text_card_item = v.findViewById(R.id.text_card_item);
         s = new ArrayList<String >();
+        s2 = new ArrayList<String >();
+
         s.add("one");
 //        s.add("two");
 //        s.add("three");
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        List<animal_lost> modellist = new ArrayList<animal_lost>();
         animal_lost animal_lost = new animal_lost();
 
-        ref = FirebaseDatabase.getInstance().getReference("Lost_animal");//.child(mAuth.getCurrentUser().getUid());
+        ref = FirebaseDatabase.getInstance().getReference("Find_animal").child(mAuth.getCurrentUser().getUid());
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @org.jetbrains.annotations.NotNull DataSnapshot snapshot) {
                 System.out.println(snapshot.child("email_user").getValue().toString());
                 animal_lost.setEmail_user(snapshot.child("email_user").getValue().toString());
                 animal_lost.setMetro(snapshot.child("metro").getValue().toString());
-                animal_lost.setName_anim(snapshot.child("name").getValue().toString());
+//                animal_lost.setName_anim(snapshot.child("name").getValue().toString());
                 animal_lost.setStreet_home(snapshot.child("street").getValue().toString());
                 animal_lost.setView(snapshot.child("category").getValue().toString());
                 System.out.println(animal_lost.getMetro());
-                s.add(animal_lost.getMetro());
+                s.add(animal_lost.getName_anim());
+                s2.add(animal_lost.getStreet_home());
             }
 
             @Override
@@ -137,8 +143,10 @@ public class SearchFragment extends Fragment {
 
             }
         });
+
         SwipeFlingAdapterView swipeFlingAdapterView = (SwipeFlingAdapterView) v.findViewById(R.id.card);
         arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.carditem, R.id.text_card_item, s);
+        arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.carditem, R.id.street, s2);
 
         swipeFlingAdapterView.setAdapter(arrayAdapter);
         swipeFlingAdapterView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {

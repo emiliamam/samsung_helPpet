@@ -1,12 +1,10 @@
 package com.example.myapplication;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,57 +17,41 @@ import com.example.myapplication.Fragment_bottom_nav.LostFragment;
 import com.example.myapplication.Fragment_bottom_nav.ProfileFragment;
 import com.example.myapplication.Fragment_bottom_nav.SearchFragment;
 import com.example.myapplication.databinding.ActivityMainBinding;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.myapplication.model_animal.animal_lost;
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class Main_menu extends AppCompatActivity {
+public class TestTest extends AppCompatActivity {
     Button next;
+    View bottom_layout;
+    FirebaseListAdapter<animal_lost> adapter;
     ActivityMainBinding binding;
-    ImageView verh1;
-    ImageView im_main;
-    TextView main_str;
-    TextView main_str2;
-    ImageView dog_hum_main;
-    Button next_main;
-    private FirebaseAuth mauth;
-    Button logout;
 
 
-    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.testtest);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        verh1 = (ImageView) findViewById(R.id.verh1);
-        im_main = (ImageView) findViewById(R.id.im_main);
-        dog_hum_main = (ImageView) findViewById(R.id.dog_hum_main);
-        main_str = (TextView) findViewById(R.id.main_str);
-        main_str2 = (TextView) findViewById(R.id.main_str2);
-        next_main = (Button) findViewById(R.id.next_main);
 
-        verh1.setVisibility(View.INVISIBLE);
-        im_main.setVisibility(View.INVISIBLE);
-        dog_hum_main.setVisibility(View.INVISIBLE);
-        main_str.setVisibility(View.INVISIBLE);
-        main_str2.setVisibility(View.INVISIBLE);
-        next_main.setVisibility(View.INVISIBLE);
+        displayallanimal();
 
-        mauth = FirebaseAuth.getInstance();
-
-        ReplaceFragment(new SearchFragment());
 
         binding.bottomNavig.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.search:
-                    ReplaceFragment(new SearchFragment());
+                    startActivity(new Intent(TestTest.this, Main_menu.class));
+//                    ReplaceFragment(new SearchFragment());
                     break;
                 case R.id.hands:
+
                     ReplaceFragment(new HandsFragment());
                     break;
 
                 case R.id.lost:
 //                    ReplaceFragment(new LostFragment());
-                    startActivity(new Intent(Main_menu.this, TestTest.class));
+                    startActivity(new Intent(TestTest.this, TestTest.class));
                     break;
 
                 case R.id.profile:
@@ -86,5 +68,21 @@ public class Main_menu extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout, fragment);
         fragmentTransaction.commit();
+
+    }
+
+    private void displayallanimal() {
+        ListView list_lost = findViewById(R.id.list_test);
+
+        adapter = new FirebaseListAdapter<animal_lost>(TestTest.this, animal_lost.class, R.layout.advertcarditem, FirebaseDatabase.getInstance().getReference().child("Lost_animal")) {
+            @Override
+            protected void populateView(View view, animal_lost model, int position) {
+                TextView name_anim, street;
+                name_anim = view.findViewById(R.id.title_anim);
+                street = view.findViewById(R.id.street_anim);
+                name_anim.setText(model.getName_anim());
+                street.setText(model.getStreet_home());
+            }
+        };list_lost.setAdapter(adapter);
     }
 }

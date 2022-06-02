@@ -43,5 +43,4 @@
         app:rotation_degrees="20"
         app:max_visible="7"
         app:min_adapter_stack="7"/>
-
 </FrameLayout>
