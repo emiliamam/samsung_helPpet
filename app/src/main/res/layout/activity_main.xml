@@ -28,8 +28,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dog_hum_main"
+        android:textColor="@color/black"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/MerriweatherBlack"
         android:text="@string/main_string"
         android:textSize="20sp" />
     <TextView
@@ -39,6 +41,8 @@
         android:layout_below="@id/main_str"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/MerriweatherBold"
+
         android:text="@string/main2"
         android:gravity="center"
         android:textSize="15sp" />
@@ -58,9 +62,11 @@
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:background="@drawable/button"
+        android:fontFamily="@font/SourceSansProSemiBold"
         android:layout_centerInParent="true"
         android:layout_below="@id/main_str2"
         android:layout_marginTop="30dp"
+        android:textSize="18dp"
         android:text="@string/next"/>
 
 

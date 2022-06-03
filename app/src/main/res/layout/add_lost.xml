@@ -13,6 +13,7 @@
         android:id="@+id/verh_blue"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+
         android:layout_below="@id/im"
         android:layout_marginTop="-10dp"
         android:background="@drawable/ic_wave__5_"
@@ -53,6 +54,7 @@
     <TextView
         android:layout_width="300dp"
         android:gravity="center"
+
         android:layout_height="wrap_content"
         android:layout_below="@+id/verh_blue"
         android:layout_centerInParent="true"
@@ -111,6 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:inputType="textEmailAddress"
             android:layout_marginTop="80dp"
             android:hint="Введите вид животного"
             android:maxLines="1"
@@ -123,6 +126,7 @@
             android:id="@+id/name_anim_lost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             android:layout_centerInParent="true"
             android:minLines="1"
             android:layout_marginStart="8dp"
@@ -178,6 +182,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minLines="1"
+            android:inputType="textEmailAddress"
             android:layout_below="@+id/name_anim"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"

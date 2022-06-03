@@ -415,6 +415,7 @@ public class add_lost extends AppCompatActivity {
     }
     public void OnClickChooseImage(View view){
         getImage();
+
     }
 
     @Override

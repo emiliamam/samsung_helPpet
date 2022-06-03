@@ -1,5 +1,6 @@
 package com.example.myapplication.Fragment_bottom_nav;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,13 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.how_help;
+import com.example.myapplication.map;
 import com.example.myapplication.profile_elit;
+import com.example.myapplication.welcome_activity;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.normal.TedPermission;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,6 +82,8 @@ public class ProfileFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
         Button but_help = v.findViewById(R.id.but_help);
         Button but_redactor = v.findViewById(R.id.but_redactor);
+        Button but_vet = v.findViewById(R.id.but_vet);
+
 
         but_help.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +95,45 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ProfileFragment.this.getActivity(), profile_elit.class));
+            }
+        });
+        but_vet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                startActivity(new Intent(ProfileFragment.this.getActivity(), welcome_activity.class));
+                Thread thread = new Thread(){
+                    @Override
+                    public void run() {
+                        super.run();
+                        try {
+                            sleep(1000);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }finally {
+                            {
+                                PermissionListener permissionlistener = new PermissionListener() {
+                                    @Override
+                                    public void onPermissionGranted() {
+                                        startActivity(new Intent(ProfileFragment.this.getActivity(), map.class));
+                                    }
+
+                                    @Override
+                                    public void onPermissionDenied(List<String> deniedPermissions) {
+                                        Toast.makeText(ProfileFragment.this.getActivity(), "Доступ запрещен\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                                    }
+
+
+                                };
+                                TedPermission.create()
+                                        .setPermissionListener(permissionlistener)
+                                        .setDeniedMessage("Для просмотра дальше необходимо предоставить разрешение")
+                                        .setPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
+                                        .check();
+                            }
+                        }
+                    }
+                };
+                thread.start();
             }
         });
 //        s = new ArrayList<String >();

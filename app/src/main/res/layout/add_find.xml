@@ -58,6 +58,7 @@
             android:layout_below="@+id/verh_blue"
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
+
             android:text="Загрузите изображение питомца"
             android:textColor="#21214A"
             android:textSize="24sp" />
@@ -115,6 +116,7 @@
             android:layout_marginTop="80dp"
             android:hint="Введите категорию животного"
             android:maxLines="1"
+            android:inputType="textEmailAddress"
             android:textColor="#717171"
             android:textSize="18sp" />
 
@@ -131,6 +133,7 @@
         <EditText
             android:id="@+id/name_street_give"
             android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"

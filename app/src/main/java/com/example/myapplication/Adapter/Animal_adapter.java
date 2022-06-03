@@ -27,6 +27,7 @@ import java.util.List;
 
 public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_adapter.myviewholder> {
 
+    int count = 0;
     public Animal_adapter(@NonNull FirebaseRecyclerOptions<animal_lost> options) {
         super(options);
     }
@@ -46,7 +47,11 @@ public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_
         holder.favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                holder.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                count++;
+                if(count%2==0){
+                    holder.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                }else{
+                    holder.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24);}
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
             }
         });

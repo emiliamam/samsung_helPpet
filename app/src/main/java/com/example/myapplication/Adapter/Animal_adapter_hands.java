@@ -5,20 +5,25 @@ package com.example.myapplication.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.model_animal.animal_give;
+import com.example.myapplication.more_card_item;
+import com.example.myapplication.more_card_item_hands;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.squareup.picasso.Picasso;
 
 public class Animal_adapter_hands extends FirebaseRecyclerAdapter<animal_give, Animal_adapter_hands.myviewholder> {
-
+    int count = 0;
     public Animal_adapter_hands(@NonNull FirebaseRecyclerOptions<animal_give> options) {
         super(options);
     }
@@ -28,6 +33,24 @@ public class Animal_adapter_hands extends FirebaseRecyclerAdapter<animal_give, A
         holder.name.setText(model.getName_anim());
         holder.street.setText((model.getMetro()+", "+model.getStreet_home()));
         Picasso.get().load(model.getUpload_uri()).into(holder.img_uri);
+        holder.learn_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new more_card_item_hands(model.getName_anim(), model.getView(), model.getUpload_uri(),model.getMetro(), model.getEmail_user(), model.getStreet_home(), model.getDescription())).addToBackStack(null).commit();
+            }
+        });
+        holder.favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count++;
+                if(count%2==0){
+                    holder.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
+                }else{
+                    holder.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24);}
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+            }
+        });
     }
 
     @NonNull
@@ -41,12 +64,17 @@ public class Animal_adapter_hands extends FirebaseRecyclerAdapter<animal_give, A
 
         TextView name, street;
         ImageView img_uri;
+        Button learn_more;
+        ImageButton favorite;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.title_anim);
             street = itemView.findViewById(R.id.street_anim);
             img_uri = itemView.findViewById(R.id.img_uri_lost);
+
+            learn_more = itemView.findViewById(R.id.learn_more);
+            favorite = itemView.findViewById(R.id.favorite);
         }
     }
 
