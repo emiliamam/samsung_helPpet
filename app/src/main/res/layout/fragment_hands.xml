@@ -48,7 +48,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:fontFamily="@font/MerriweatherRegular"
+            android:fontFamily="@font/merriweatherregular"
             android:layout_weight="2"
             android:text="Их отдают в добрые руки"
             android:textSize="25dp"
