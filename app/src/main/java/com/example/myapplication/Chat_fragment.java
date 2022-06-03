@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.myapplication.Adapter.Chat_adapter;
 import com.example.myapplication.Model.Chat;
@@ -26,11 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Chat_fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
+
 public class Chat_fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -45,21 +42,24 @@ public class Chat_fragment extends Fragment {
     private String sender_email, text_message;
     private DatabaseReference ref;
     Chat_adapter chat;
+    String user_order_email;
+    String name_anim,  metro, street_home, upload_uri,email;
 
 
+    public Chat_fragment(String sender_email) {
+        this.user_order_email = sender_email;
+    }
     public Chat_fragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Chat_fragment.
-     */
-    // TODO: Rename and change types and number of parameters
+    public Chat_fragment(String name_anim, String metro, String street_home, String upload_uri, String email) {
+        this.name_anim = name_anim;
+        this.metro = metro;
+        this.street_home = street_home;
+        this.upload_uri = upload_uri;
+        this.email = email;
+    }
+
     public static Chat_fragment newInstance(String param1, String param2) {
         Chat_fragment fragment = new Chat_fragment();
         Bundle args = new Bundle();
@@ -84,22 +84,23 @@ public class Chat_fragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_chat_fragment, container, false);
         btn_record = v.findViewById(R.id.btn_record);
+        TextView email_user_order = v.findViewById(R.id.email_user_order);
 
-        ref = FirebaseDatabase.getInstance().getReference("Chat");
+        email_user_order.setText(email);
 
         btn_record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 EditText text_field = v.findViewById(R.id.text_field);
-                FirebaseDatabase.getInstance().getReference().child("Chat").push().setValue(
+                FirebaseDatabase.getInstance().getReference().child("Chat").child(name_anim+street_home+metro).push().setValue(
                         new Chat(FirebaseAuth.getInstance().getCurrentUser().getEmail(),
                                 text_field.getText().toString())
                 );
                 text_field.setText("");
             }
         });
-        ref = FirebaseDatabase.getInstance().getReference("Chat");
+        ref = FirebaseDatabase.getInstance().getReference("Chat").child(name_anim+street_home+metro);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

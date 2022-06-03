@@ -81,7 +81,7 @@ public class LostFragment extends Fragment {
         animal_adapter = new Animal_adapter(options);
         System.out.println("adapter"+animal_adapter);
         recyclerView.setAdapter(animal_adapter);
-
+        
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

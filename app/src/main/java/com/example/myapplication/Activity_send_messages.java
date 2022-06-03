@@ -2,10 +2,12 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Map;
 
+
 public class Activity_send_messages extends AppCompatActivity {
     Button next;
     View bottom_layout;
@@ -36,6 +39,9 @@ public class Activity_send_messages extends AppCompatActivity {
     private String sender_email, text_message;
     private DatabaseReference ref;
     Chat_adapter chat;
+    TextView textView;
+
+    private String name_anim, view, upload_uri, metro, email_user, street_home;
 
 
 
@@ -45,23 +51,33 @@ public class Activity_send_messages extends AppCompatActivity {
         setContentView(R.layout.activity_send_message);
 
         btn_record = findViewById(R.id.btn_record);
+        textView  = findViewById(R.id.email_user_order_layout);
 
-        ref = FirebaseDatabase.getInstance().getReference("Chat");
+//        ref = FirebaseDatabase.getInstance().getReference("Chat");
+//        System.out.println(extras.getString("adapterMessage") + " тест");
+//
+//        textView.setText(extras.getString("adapterMessage"));
+        Bundle extras = getIntent().getExtras();
+        name_anim = extras.getString("name_anim");
+        upload_uri = extras.getString("upload_uri");
+        metro = extras.getString("metro");
+        email_user = extras.getString("email_user");
+        street_home = extras.getString("street_home");
+        ref = FirebaseDatabase.getInstance().getReference().child(("Chat"+name_anim+metro+street_home));
 
+        long time = System.currentTimeMillis();
         btn_record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 EditText text_field = findViewById(R.id.text_field);
-                FirebaseDatabase.getInstance().getReference().child("Chat").push().setValue(
+                ref.push().setValue(
                         new Chat(FirebaseAuth.getInstance().getCurrentUser().getEmail(),
                                 text_field.getText().toString())
                 );
                 text_field.setText("");
             }
         });
-        ref = FirebaseDatabase.getInstance().getReference("Chat");
-        Intent i = new Intent(Activity_send_messages.this, Activity_send_messages.class);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -69,7 +85,6 @@ public class Activity_send_messages extends AppCompatActivity {
 
                     Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
                     System.out.println(map.values());
-//                    System.out.println(map.get("street_home"));
 
 
                 }
@@ -86,18 +101,21 @@ public class Activity_send_messages extends AppCompatActivity {
 
         FirebaseRecyclerOptions<Chat> options =
                 new FirebaseRecyclerOptions.Builder<Chat>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Chat"), Chat.class)
+                        .setQuery(ref, Chat.class)
                         .build();
 
         chat = new Chat_adapter(options);
         recyclerView.setAdapter(chat);
-
 
     }
     @Override
     public void onStart() {
         super.onStart();
         chat.startListening();
+
+
+        System.out.println(name_anim + upload_uri + metro + email_user + street_home);
+//        }
     }
 
     @Override
@@ -105,5 +123,6 @@ public class Activity_send_messages extends AppCompatActivity {
         super.onStop();
         chat.stopListening();
     }
+
 
 }
