@@ -83,6 +83,9 @@ public class ProfileFragment extends Fragment {
         Button but_help = v.findViewById(R.id.but_help);
         Button but_redactor = v.findViewById(R.id.but_redactor);
         Button but_vet = v.findViewById(R.id.but_vet);
+        Button but_priut = v.findViewById(R.id.but_pruit);
+
+
 
 
         but_help.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +101,45 @@ public class ProfileFragment extends Fragment {
             }
         });
         but_vet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                startActivity(new Intent(ProfileFragment.this.getActivity(), welcome_activity.class));
+                Thread thread = new Thread(){
+                    @Override
+                    public void run() {
+                        super.run();
+                        try {
+                            sleep(1000);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }finally {
+                            {
+                                PermissionListener permissionlistener = new PermissionListener() {
+                                    @Override
+                                    public void onPermissionGranted() {
+                                        startActivity(new Intent(ProfileFragment.this.getActivity(), map.class));
+                                    }
+
+                                    @Override
+                                    public void onPermissionDenied(List<String> deniedPermissions) {
+                                        Toast.makeText(ProfileFragment.this.getActivity(), "Доступ запрещен\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                                    }
+
+
+                                };
+                                TedPermission.create()
+                                        .setPermissionListener(permissionlistener)
+                                        .setDeniedMessage("Для просмотра дальше необходимо предоставить разрешение")
+                                        .setPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
+                                        .check();
+                            }
+                        }
+                    }
+                };
+                thread.start();
+            }
+        });
+        but_priut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                startActivity(new Intent(ProfileFragment.this.getActivity(), welcome_activity.class));

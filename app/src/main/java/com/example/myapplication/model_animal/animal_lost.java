@@ -23,6 +23,15 @@ public class animal_lost {
         this.street_home = street_home;
     }
 
+    public animal_lost(String email, String upload_uri, String name_anim, String view, String metro, String street_home) {
+        this.email_user = email;
+        this.upload_uri = upload_uri;
+        this.name_anim = name_anim;
+        this.view = view;
+        this.metro = metro;
+        this.street_home = street_home;
+    }
+
     public String getName_user() {
         return name_user;
     }

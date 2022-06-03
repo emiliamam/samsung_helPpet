@@ -23,7 +23,7 @@
                 android:textSize="25dp"
                 android:layout_marginStart="20dp"
                 android:textColor="@color/black"
-                android:fontFamily="@font/MerriweatherBold"
+                android:fontFamily="@font/merriweatherbold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
@@ -31,7 +31,7 @@
                 android:layout_marginStart="20dp"
                 android:textColor="@color/black"
                 android:id="@+id/street_anim"
-                android:fontFamily="@font/SourceSansProRegular"
+                android:fontFamily="@font/sourcesanssroregular"
 
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
@@ -49,7 +49,7 @@
                 android:layout_height="35dp"
                 android:text="Узнать больше"
                 android:id="@+id/learn_more"
-                android:fontFamily="@font/SourceSansProRegular"
+                android:fontFamily="@font/sourcesanssroregular"
                 android:background="@drawable/button"/>
                 <ImageButton
 

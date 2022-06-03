@@ -64,6 +64,7 @@ public class Activity_send_messages extends AppCompatActivity {
         email_user = extras.getString("email_user");
         street_home = extras.getString("street_home");
         name_user = extras.getString("name_user");
+        System.out.println(name_user + " name_user");
         ref = FirebaseDatabase.getInstance().getReference().child(("Chat"+name_anim+metro+street_home));
 
         long time = System.currentTimeMillis();

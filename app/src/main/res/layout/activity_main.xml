@@ -31,7 +31,7 @@
         android:textColor="@color/black"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/MerriweatherBlack"
+        android:fontFamily="@font/merriweatherblack"
         android:text="@string/main_string"
         android:textSize="20sp" />
     <TextView
@@ -41,7 +41,7 @@
         android:layout_below="@id/main_str"
         android:layout_centerInParent="true"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/MerriweatherBold"
+        android:fontFamily="@font/merriweatherbold"
 
         android:text="@string/main2"
         android:gravity="center"
@@ -62,7 +62,7 @@
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:background="@drawable/button"
-        android:fontFamily="@font/SourceSansProSemiBold"
+        android:fontFamily="@font/sourcesansprosemibold"
         android:layout_centerInParent="true"
         android:layout_below="@id/main_str2"
         android:layout_marginTop="30dp"

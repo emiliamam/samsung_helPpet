@@ -21,6 +21,8 @@ import com.example.myapplication.model_animal.animal_lost;
 import com.example.myapplication.more_card_item;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -51,7 +53,16 @@ public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_
                 if(count%2==0){
                     holder.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
                 }else{
-                    holder.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24);}
+                    holder.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                    FirebaseDatabase.getInstance().getReference().child("Favorite_animal").push().setValue(
+                            new animal_lost(FirebaseAuth.getInstance().getCurrentUser().getEmail(),
+                                    model.getUpload_uri(),
+                                    model.getName_anim(),
+                                    model.getView(),
+                                    model.getMetro(),
+                                    model.getStreet_home())
+                    );
+                }
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
             }
         });

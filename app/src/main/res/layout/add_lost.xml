@@ -54,7 +54,7 @@
     <TextView
         android:layout_width="300dp"
         android:gravity="center"
-        android:fontFamily="@font/MerriweatherBold"
+        android:fontFamily="@font/merriweatherbold"
         android:layout_height="wrap_content"
         android:layout_below="@+id/verh_blue"
         android:layout_centerInParent="true"
@@ -84,7 +84,7 @@
         app:layout_constraintVertical_bias="0.861" />
     <Button
 
-        android:fontFamily="@font/SourceSansProRegular"
+        android:fontFamily="@font/sourcesanssroregular"
         android:layout_marginTop="25sp"
         android:id="@+id/but_im"
         android:layout_width="300dp"
@@ -101,7 +101,7 @@
         android:layout_below="@+id/verh_blue"
         android:layout_marginTop="-250dp">
         <TextView
-            android:fontFamily="@font/MerriweatherBold"
+            android:fontFamily="@font/merriweatherbold"
             android:layout_width="300dp"
             android:gravity="center"
             android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/SourceSansProRegular"
+            android:fontFamily="@font/sourcesanssroregular"
             android:inputType="textEmailAddress"
             android:layout_marginTop="80dp"
             android:hint="Введите вид животного"
@@ -133,7 +133,7 @@
             android:layout_centerInParent="true"
             android:minLines="1"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/SourceSansProRegular"
+            android:fontFamily="@font/sourcesanssroregular"
             android:layout_marginTop="20dp"
             android:maxLines="1"
             android:hint="Введите кличку питомца"
@@ -142,7 +142,7 @@
         <Button
             android:layout_marginTop="25sp"
             android:id="@+id/next_add_2"
-            android:fontFamily="@font/SourceSansProRegular"
+            android:fontFamily="@font/sourcesanssroregular"
             android:layout_width="300dp"
             android:layout_height="45dp"
             android:background="@drawable/button"
@@ -160,7 +160,7 @@
 
         <TextView
             android:layout_width="300dp"
-            android:fontFamily="@font/MerriweatherBold"
+            android:fontFamily="@font/merriweatherbold"
             android:layout_height="wrap_content"
             android:layout_below="@+id/verh_blue"
             android:layout_centerInParent="true"
@@ -177,7 +177,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="80dp"
-            android:fontFamily="@font/SourceSansProRegular"
+            android:fontFamily="@font/sourcesanssroregular"
             android:hint="Введите метро"
             android:maxLines="1"
             android:textColor="#717171"
@@ -190,7 +190,7 @@
             android:layout_height="wrap_content"
             android:minLines="1"
             android:inputType="textEmailAddress"
-            android:fontFamily="@font/SourceSansProRegular"
+            android:fontFamily="@font/sourcesanssroregular"
             android:layout_below="@+id/name_anim"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"
@@ -204,7 +204,7 @@
             android:id="@+id/next_add_3"
             android:layout_width="300dp"
             android:layout_height="45dp"
-            android:fontFamily="@font/SourceSansProRegular"
+            android:fontFamily="@font/sourcesanssroregular"
             android:layout_marginTop="25sp"
             android:background="@drawable/button"
             android:text="Далее" />
