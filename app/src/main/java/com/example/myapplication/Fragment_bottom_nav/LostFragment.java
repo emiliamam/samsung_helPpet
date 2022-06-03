@@ -22,6 +22,7 @@ import com.example.myapplication.add.add_lost;
 import com.example.myapplication.model_animal.animal_lost;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
+import com.huxq17.swipecardsview.SwipeCardsView;
 //import com.firebase.ui.database.FirebaseListAdapter;
 //import com.firebase.ui.database.FirebaseListOptions;
 //import com.google.firebase.database.FirebaseDatabase;
@@ -75,7 +76,9 @@ public class LostFragment extends Fragment {
                 new FirebaseRecyclerOptions.Builder<animal_lost>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Lost_animal"), animal_lost.class)
                         .build();
-
+//        SwipeCardsView swipe_card = (SwipeCardsView)v.findViewById(R.id.swipe_card);
+//        swipe_card.retainLastCard(false);
+//        swipe_card.enableSwipe(true);
         animal_adapter = new Animal_adapter(options);
         System.out.println("adapter"+animal_adapter);
         recyclerView.setAdapter(animal_adapter);

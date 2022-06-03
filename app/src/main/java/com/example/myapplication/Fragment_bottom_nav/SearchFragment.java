@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 //import com.example.myapplication.Adapter.CardAdapter;
+import com.example.myapplication.Adapter.CardAdapter;
 import com.example.myapplication.Add;
 import com.example.myapplication.ForgetPassword;
 import com.example.myapplication.Login;
@@ -23,17 +25,21 @@ import com.example.myapplication.Model.model;
 import com.example.myapplication.R;
 import com.example.myapplication.model_animal.animal_find;
 import com.example.myapplication.model_animal.animal_lost;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.huxq17.swipecardsview.SwipeCardsView;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -46,15 +52,16 @@ public class SearchFragment extends Fragment {
 
     ArrayList<String> s;
     ArrayList<String> s2;
-
+    ArrayList<String> list;
+    Map<String, String> map = new HashMap<String, String>();
     ArrayAdapter arrayAdapter;
     int n=0;
 
     private ImageButton add_search;
 
     private DatabaseReference ref;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private SwipeCardsView swipe_card;
+    List<animal_find> animal_find2 = new ArrayList<animal_find>();
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -66,15 +73,6 @@ public class SearchFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static SearchFragment newInstance(String param1, String param2) {
         SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
@@ -93,6 +91,7 @@ public class SearchFragment extends Fragment {
         }
 
     }
+
 
 
     @Override
@@ -114,17 +113,22 @@ public class SearchFragment extends Fragment {
         List<animal_find> modellist = new ArrayList<animal_find>();
         animal_find animal_find = new animal_find();
 
-        ref = FirebaseDatabase.getInstance().getReference("Find_animal").child(mAuth.getCurrentUser().getUid());
+        ref = FirebaseDatabase.getInstance().getReference("Find_animal");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @org.jetbrains.annotations.NotNull DataSnapshot snapshot) {
-                System.out.println(snapshot.child("email_user").getValue().toString());
-                animal_find.setEmail_user(snapshot.child("email_user").getValue().toString());
-                animal_find.setMetro(snapshot.child("metro").getValue().toString());
-                animal_find.setStreet_home(snapshot.child("street").getValue().toString());
-                animal_find.setView(snapshot.child("category").getValue().toString());
-                System.out.println(animal_find.getMetro());
-                s.add(animal_find.getStreet_home());
+//                System.out.println(snapshot.child("email_user").getValue().toString());
+//                animal_find.setEmail_user(snapshot.child("email_user").getValue().toString());
+//                animal_find.setMetro(snapshot.child("metro").getValue().toString());
+//                animal_find.setStreet_home(snapshot.child("street").getValue().toString());
+//                animal_find.setView(snapshot.child("category").getValue().toString());
+//                System.out.println(animal_find.getMetro());
+//                GenericTypeIndicator<List<animal_find>> t = new GenericTypeIndicator<List<animal_find>>() {};
+//                List<animal_find> messages = snapshot.getValue(t);
+//                System.out.println(messages.size());
+                String email = snapshot.child("street_home").getValue(String.class);
+                System.out.println(email);
+                s.add(email);
             }
 
             @Override

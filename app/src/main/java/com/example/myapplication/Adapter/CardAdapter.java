@@ -10,6 +10,7 @@ import androidx.cardview.widget.CardView;
 import com.example.myapplication.Fragment_bottom_nav.SearchFragment;
 import com.example.myapplication.Model.model;
 import com.example.myapplication.R;
+import com.example.myapplication.model_animal.animal_find;
 import com.example.myapplication.model_animal.animal_lost;
 import com.huxq17.swipecardsview.BaseCardAdapter;
 import com.squareup.picasso.Picasso;
@@ -19,37 +20,35 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 public class CardAdapter extends BaseCardAdapter {
-    private List<animal_lost> model_list ;
-    private SearchFragment context;
+    private List<animal_find> modellist;
+    Context context;
 
-    public CardAdapter(List<animal_lost> model_list, SearchFragment context) {
-        this.model_list = model_list;
+    public CardAdapter(List<animal_find> modellist, Context context) {
+        this.modellist = modellist;
         this.context = context;
     }
 
     @Override
     public int getCount() {
-        return model_list.size();
+        return modellist.size();
     }
 
     @Override
     public int getCardLayoutId() {
-        return R.layout.carditem;
+        return R.layout.carditem_test;
     }
 
     @Override
     public void onBindData(int position, View cardview) {
-        if (model_list == null || model_list.size()==0){
-            return;
-        }
-        ImageView image_card_item = (ImageView)cardview.findViewById(R.id.im_card);
-        TextView text_card_item = (TextView)cardview.findViewById(R.id.text_card_item);
-        TextView street = (TextView)cardview.findViewById(R.id.street);
+        ImageView imageView = (ImageView)cardview.findViewById(R.id.img_card_item);
+        TextView name = (TextView) cardview.findViewById(R.id.name);
+        TextView street = (TextView) cardview.findViewById(R.id.street_card_item);
 
-        animal_lost model = model_list.get(position);
-        text_card_item.setText(model.getName_anim());
-        street.setText(model.getStreet_home());
-//        Picasso.get().load(model.getImage()).into(image_card_item);
+        animal_find animal_find = modellist.get(position);
+        name.setText(animal_find.getView());
+        street.setText((animal_find.getMetro()+ " " + animal_find.getStreet_home()));
+        Picasso.get().load(animal_find.getUpload_uri()).into(imageView);
+
 
     }
 }
