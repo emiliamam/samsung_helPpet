@@ -16,13 +16,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.myapplication.Adapter.Animal_adapter;
+import com.example.myapplication.Adapter.Animal_adapter_hands;
 import com.example.myapplication.Add;
 import com.example.myapplication.R;
 import com.example.myapplication.add.add_lost;
+import com.example.myapplication.model_animal.animal_give;
 import com.example.myapplication.model_animal.animal_lost;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
-import com.huxq17.swipecardsview.SwipeCardsView;
 //import com.firebase.ui.database.FirebaseListAdapter;
 //import com.firebase.ui.database.FirebaseListOptions;
 //import com.google.firebase.database.FirebaseDatabase;
@@ -40,7 +41,7 @@ public class LostFragment extends Fragment {
     private String mParam2;
     private ImageButton add;
 
-    Animal_adapter animal_adapter;
+    Animal_adapter_hands animal_adapter;
 
     public LostFragment() {
     }
@@ -72,14 +73,12 @@ public class LostFragment extends Fragment {
         add = v.findViewById(R.id.add_lost);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        FirebaseRecyclerOptions<animal_lost> options =
-                new FirebaseRecyclerOptions.Builder<animal_lost>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Lost_animal"), animal_lost.class)
+        FirebaseRecyclerOptions<animal_give> options =
+                new FirebaseRecyclerOptions.Builder<animal_give>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Lost_animal"), animal_give.class)
                         .build();
-//        SwipeCardsView swipe_card = (SwipeCardsView)v.findViewById(R.id.swipe_card);
-//        swipe_card.retainLastCard(false);
-//        swipe_card.enableSwipe(true);
-        animal_adapter = new Animal_adapter(options);
+
+        animal_adapter = new Animal_adapter_hands(options);
         System.out.println("adapter"+animal_adapter);
         recyclerView.setAdapter(animal_adapter);
 

@@ -7,17 +7,14 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.model_animal.animal_lost;
-import com.example.myapplication.more_card_item;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.squareup.picasso.Picasso;
@@ -35,14 +32,6 @@ public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_
         holder.name.setText(model.getName_anim());
         holder.street.setText((model.getMetro()+", "+model.getStreet_home()));
         Picasso.get().load(model.getUpload_uri()).into(holder.img_uri);
-        holder.learn_more.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new more_card_item(model.getName_anim(), model.getView(), model.getUpload_uri(),model.getMetro(), model.getEmail_user())).addToBackStack(null).commit();
-            }
-        });
-
     }
 
     @NonNull
@@ -55,7 +44,6 @@ public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_
     public class myviewholder extends RecyclerView.ViewHolder{
 
         TextView name, street;
-        Button learn_more;
         ImageView img_uri;
 
         public myviewholder(@NonNull View itemView) {
@@ -63,7 +51,6 @@ public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_
             name = itemView.findViewById(R.id.title_anim);
             street = itemView.findViewById(R.id.street_anim);
             img_uri = itemView.findViewById(R.id.img_uri_lost);
-            learn_more = itemView.findViewById(R.id.learn_more);
         }
     }
 

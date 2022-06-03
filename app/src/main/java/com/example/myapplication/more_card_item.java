@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -10,13 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.myapplication.Fragment_bottom_nav.LostFragment;
+
 import org.w3c.dom.Text;
 
 
 public class more_card_item extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -24,8 +25,8 @@ public class more_card_item extends Fragment {
     private String mParam1;
     private String mParam2;
     private String name_anim, view, upload_uri, metro, email_user;
+
     public more_card_item() {
-        // Required empty public constructor
     }
 
     public more_card_item(String name_anim, String view, String upload_uri, String metro, String email_user) {
@@ -67,5 +68,10 @@ public class more_card_item extends Fragment {
 
         name.setText(name_anim);
         return view;
+    }
+
+    public void onBackPressed(){
+        AppCompatActivity activity = (AppCompatActivity) getContext();
+        activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new LostFragment()).addToBackStack(null).commit();
     }
 }
