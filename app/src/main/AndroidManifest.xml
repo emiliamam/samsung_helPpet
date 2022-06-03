@@ -80,6 +80,12 @@
         <activity
             android:name=".TestTest"
             android:exported="true" />
+        <activity
+            android:name=".Activity_send_messages"
+            android:exported="true"/>
+        <activity
+            android:name=".profile_elit"
+            android:exported="true"/>
     </application>
 
 </manifest>

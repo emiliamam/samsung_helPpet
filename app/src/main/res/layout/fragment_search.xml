@@ -34,17 +34,17 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"/>
     </LinearLayout>
-<!--<com.huxq17.swipecardsview.SwipeCardsView-->
-<!--    android:id="@+id/swipe_card"-->
-<!--    android:layout_width="300dp"-->
-<!--    android:layout_height="300dp"-->
-<!--    android:layout_gravity="center"/>-->
+<com.huxq17.swipecardsview.SwipeCardsView
+    android:id="@+id/swipe_card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"/>
 
-    <com.lorentzos.flingswipe.SwipeFlingAdapterView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/card"
-        app:rotation_degrees="20"
-        app:max_visible="7"
-        app:min_adapter_stack="7"/>
+<!--    <com.lorentzos.flingswipe.SwipeFlingAdapterView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/card"-->
+<!--        app:rotation_degrees="20"-->
+<!--        app:max_visible="7"-->
+<!--        app:min_adapter_stack="7"/>-->
 </FrameLayout>

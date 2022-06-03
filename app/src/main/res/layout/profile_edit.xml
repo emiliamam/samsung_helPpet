@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment_bottom_nav.ProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/im"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#21214A"/>
+    <ImageView
+        android:id="@+id/verh_blue"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+
+        android:layout_below="@id/im"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/ic_wave__5_"
+        android:rotation="180"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Как я могу помочь?"
+        android:textSize="23sp"
+        android:gravity="center"
+        android:layout_marginTop="-40dp"
+        android:textColor="@color/black"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/button_profile"
+        android:gravity="left|center_vertical"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="20dp"
+        android:textColor="#717171"
+        android:text="Стать волонтером"
+        android:textSize="16sp"
+        />
+
+
+</LinearLayout>
+</ScrollView>

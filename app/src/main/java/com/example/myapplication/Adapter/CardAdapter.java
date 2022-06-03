@@ -43,6 +43,7 @@ public class CardAdapter extends BaseCardAdapter {
         ImageView imageView = (ImageView)cardview.findViewById(R.id.img_card_item);
         TextView name = (TextView) cardview.findViewById(R.id.name);
         TextView street = (TextView) cardview.findViewById(R.id.street_card_item);
+        System.out.println("все хорошо");
 
         animal_find animal_find = modellist.get(position);
         name.setText(animal_find.getView());

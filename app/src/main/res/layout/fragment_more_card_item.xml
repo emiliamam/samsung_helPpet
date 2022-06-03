@@ -7,19 +7,57 @@
     tools:context=".more_card_item">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/text_name"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-    <TextView
-        android:id="@+id/text_street"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+
     <ImageView
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/more_image"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:orientation="vertical">
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/text_name"
+                android:textSize="23dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_height="match_parent"
+                android:text="@string/hello_blank_fragment" />
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_marginStart="20dp"
+
+            android:id="@+id/text_street"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/hello_blank_fragment"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+
+
+            android:orientation="horizontal">
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/but_for_chat"
+            android:text="Связаться"
+            android:layout_marginStart="20dp"/>
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/ic_baseline_favorite_border_24"
+                android:layout_marginStart="30dp"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

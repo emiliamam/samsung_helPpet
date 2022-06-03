@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.example.myapplication.R;
 import com.example.myapplication.how_help;
+import com.example.myapplication.profile_elit;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
@@ -73,11 +74,18 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
         Button but_help = v.findViewById(R.id.but_help);
+        Button but_redactor = v.findViewById(R.id.but_redactor);
 
         but_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ProfileFragment.this.getActivity(), how_help.class));
+            }
+        });
+        but_redactor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfileFragment.this.getActivity(), profile_elit.class));
             }
         });
 //        s = new ArrayList<String >();

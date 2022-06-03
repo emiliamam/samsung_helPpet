@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,7 +40,14 @@ public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_
             @Override
             public void onClick(View view) {
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new more_card_item(model.getName_anim(), model.getView(), model.getUpload_uri(),model.getMetro(), model.getEmail_user())).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new more_card_item(model.getName_anim(), model.getView(), model.getUpload_uri(),model.getMetro(), model.getEmail_user(), model.getStreet_home())).addToBackStack(null).commit();
+            }
+        });
+        holder.favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.favorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
             }
         });
 
@@ -57,6 +65,7 @@ public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_
         TextView name, street;
         ImageView img_uri;
         Button learn_more;
+        ImageButton favorite;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
@@ -64,6 +73,7 @@ public class Animal_adapter extends FirebaseRecyclerAdapter<animal_lost, Animal_
             street = itemView.findViewById(R.id.street_anim);
             img_uri = itemView.findViewById(R.id.img_uri_lost);
             learn_more = itemView.findViewById(R.id.learn_more);
+            favorite = itemView.findViewById(R.id.favorite);
 
         }
     }
