@@ -11,9 +11,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="25sp"
+    android:fontFamily="@font/MerriweatherBold"
     android:layout_marginTop="10dp"
     android:layout_marginStart="10dp"
-    android:textSize="25sp"/>
+    />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -56,6 +57,7 @@
         android:layout_alignParentStart="false"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="14dp"
+        android:fontFamily="@font/SourceSansProSemiBold"
         android:layout_toStartOf="@+id/btn_record"
         android:layout_toEndOf="@+id/image_add"
         android:background="@color/white"

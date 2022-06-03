@@ -17,6 +17,7 @@
             android:layout_weight="2"
             android:text="Они ищут дом"
             android:textSize="25dp"
+            android:fontFamily="@font/MerriweatherRegular"
             android:textColor="@color/black"
             android:gravity="center_vertical"
             android:layout_marginStart="20dp"

@@ -29,7 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Вашь профиль"
-        android:textSize="23sp"
+        android:textSize="25sp"
+        android:fontFamily="@font/MerriweatherRegular"
         android:layout_marginStart="19dp"
         android:layout_marginTop="-40dp"
         android:textColor="@color/black"/>

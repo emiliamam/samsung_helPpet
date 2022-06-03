@@ -24,7 +24,7 @@
 
         <ImageButton
 
-            android:id="@+id/add_hands"
+            android:id="@+id/add_lost"
             android:layout_width="40dp"
             android:src="@drawable/ic_vector__add"
             android:layout_height="40dp"
@@ -48,6 +48,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="100dp"
+            android:fontFamily="@font/MerriweatherRegular"
             android:layout_weight="2"
             android:text="Их отдают в добрые руки"
             android:textSize="25dp"
@@ -59,10 +60,9 @@
             />
     </RelativeLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_hands"
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="60dp"
         android:layout_marginTop="130dp"/>
 
 </FrameLayout>
