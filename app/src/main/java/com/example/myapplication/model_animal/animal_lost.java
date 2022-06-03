@@ -5,6 +5,7 @@ import android.net.Uri;
 public class animal_lost {
 
     private String email_user;
+    private String name_user;
     private String upload_uri;
     private String name_anim;
     private String view;
@@ -12,13 +13,22 @@ public class animal_lost {
     private String street_home;
 
 
-    public animal_lost(String email_user, String upload_uri, String name_anim, String view, String metro, String street_home) {
+    public animal_lost(String email_user,String name_user, String upload_uri, String name_anim, String view, String metro, String street_home) {
         this.email_user = email_user;
+        this.name_user = name_user;
         this.upload_uri = upload_uri;
         this.name_anim = name_anim;
         this.view = view;
         this.metro = metro;
         this.street_home = street_home;
+    }
+
+    public String getName_user() {
+        return name_user;
+    }
+
+    public void setName_user(String name_user) {
+        this.name_user = name_user;
     }
 
     public animal_lost() {

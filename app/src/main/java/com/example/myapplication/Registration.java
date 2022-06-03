@@ -27,6 +27,7 @@ public class Registration extends AppCompatActivity {
     TextView wrong_password;
     TextView wrong_password2;
     TextView something_wrong;
+    EditText name_reg;
 
     private FirebaseAuth mauth;
 
@@ -39,6 +40,8 @@ public class Registration extends AppCompatActivity {
         name = (EditText) findViewById(R.id.name_reg);
         email = (EditText) findViewById(R.id.email_reg);
         pass_reg = (EditText) findViewById(R.id.pass_reg);
+        name_reg = (EditText) findViewById(R.id.name_reg);
+
         login = (TextView) findViewById(R.id.login);
         wrong_name = (TextView) findViewById(R.id.wrong_name);
         wrong_email = (TextView) findViewById(R.id.wrong_email);
@@ -78,12 +81,14 @@ public class Registration extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()){
                                         Intent intent = new Intent(Registration.this, Main_menu.class);
+                                        intent.putExtra("name_user", name_reg.getText().toString());
                                         startActivity(intent);
                                     }else{
                                         something_wrong.setVisibility(View.VISIBLE);
                                     }
                                 }
                             });
+
                 }
             }
         });

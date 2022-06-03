@@ -47,9 +47,10 @@ public class Chat_adapter extends FirebaseRecyclerAdapter<Chat, Chat_adapter.myv
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull Chat model) {
         holder.text_messages.setText(model.getText_message());
-        holder.email.setText(model.getSender_email());
-        email_sender = model.getSender_email();
+        holder.name_user.setText(model.getSender_email());
         System.out.println(model.getText_message());
+        System.out.println(model.getSender_email());
+
         ;
 
     }
@@ -73,13 +74,13 @@ public class Chat_adapter extends FirebaseRecyclerAdapter<Chat, Chat_adapter.myv
 
     public class myviewholder extends RecyclerView.ViewHolder{
 
-        TextView text_messages, email;
+        TextView text_messages, name_user;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
                     text_messages = itemView.findViewById(R.id.text_message2);
-                    email = itemView.findViewById(R.id.email_sent_message);
+                    name_user = itemView.findViewById(R.id.email_sent_message);
 //                }
 
         }

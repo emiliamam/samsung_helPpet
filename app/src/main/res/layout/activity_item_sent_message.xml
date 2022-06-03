@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/email_sent_message"
         app:layout_constraintEnd_toEndOf="parent"
-        android:fontFamily="@font/SourceSansProRegular"
+        android:fontFamily="@font/sourcesanssroregular"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.8"
         android:padding="20dp"
@@ -20,7 +20,7 @@
     <TextView
         android:id="@+id/text_message2"
         android:layout_marginTop="50dp"
-        android:fontFamily="@font/SourceSansProRegular"
+        android:fontFamily="@font/sourcesanssroregular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/background_sent_message"
