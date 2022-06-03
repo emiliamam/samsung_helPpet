@@ -41,7 +41,7 @@ public class LostFragment extends Fragment {
     private String mParam2;
     private ImageButton add;
 
-    Animal_adapter_hands animal_adapter;
+    Animal_adapter animal_adapter;
 
     public LostFragment() {
     }
@@ -73,12 +73,12 @@ public class LostFragment extends Fragment {
         add = v.findViewById(R.id.add_lost);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        FirebaseRecyclerOptions<animal_give> options =
-                new FirebaseRecyclerOptions.Builder<animal_give>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Lost_animal"), animal_give.class)
+        FirebaseRecyclerOptions<animal_lost> options =
+                new FirebaseRecyclerOptions.Builder<animal_lost>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Lost_animal"), animal_lost.class)
                         .build();
 
-        animal_adapter = new Animal_adapter_hands(options);
+        animal_adapter = new Animal_adapter(options);
         System.out.println("adapter"+animal_adapter);
         recyclerView.setAdapter(animal_adapter);
 
