@@ -6,15 +6,19 @@
     android:layout_marginBottom="6dp"
         android:layout_width="match_parent"
 
-        >    <TextView
-    android:id="@+id/email_user_order_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="25sp"
-    android:fontFamily="@font/merriweatherbold"
-    android:layout_marginTop="10dp"
-    android:layout_marginStart="10dp"
-    />
+        >
+
+    <TextView
+        android:id="@+id/email_user_order_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/merriweatherbold"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="Чат"
+         />
 
 
     <androidx.recyclerview.widget.RecyclerView

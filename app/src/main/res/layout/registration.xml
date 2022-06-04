@@ -169,7 +169,7 @@
 
             />
         <TextView
-            android:id="@+id/login"
+            android:id="@+id/login_registr"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:text="Войти"

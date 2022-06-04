@@ -51,8 +51,6 @@ public class Chat_adapter extends FirebaseRecyclerAdapter<Chat, Chat_adapter.myv
         System.out.println(model.getText_message());
         System.out.println(model.getSender_email());
 
-        ;
-
     }
 
 

@@ -385,7 +385,7 @@ public class add_lost extends AppCompatActivity {
             }
         });
         Bundle extras = getIntent().getExtras();
-        String name_user = extras.getString("name_user");
+//        String name_user = extras.getString("name_user");
         next_add_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -395,7 +395,6 @@ public class add_lost extends AppCompatActivity {
                 } else {
                     FirebaseDatabase.getInstance().getReference().child("Lost_animal").push().setValue(
                             new animal_lost(FirebaseAuth.getInstance().getCurrentUser().getEmail(),
-                                    name_user,
                                     upload_uri.toString(),
                                     name,
                                     category,

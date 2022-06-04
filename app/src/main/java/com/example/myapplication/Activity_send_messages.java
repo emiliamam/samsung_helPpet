@@ -41,7 +41,7 @@ public class Activity_send_messages extends AppCompatActivity {
     Chat_adapter chat;
     TextView textView;
 
-    private String name_anim, name_user, view, upload_uri, metro, email_user, street_home;
+    private String name_anim, view, upload_uri, metro, email_user, street_home;
 
 
 
@@ -63,8 +63,6 @@ public class Activity_send_messages extends AppCompatActivity {
         metro = extras.getString("metro");
         email_user = extras.getString("email_user");
         street_home = extras.getString("street_home");
-        name_user = extras.getString("name_user");
-        System.out.println(name_user + " name_user");
         ref = FirebaseDatabase.getInstance().getReference().child(("Chat"+name_anim+metro+street_home));
 
         long time = System.currentTimeMillis();
@@ -74,7 +72,7 @@ public class Activity_send_messages extends AppCompatActivity {
 
                 EditText text_field = findViewById(R.id.text_field);
                 ref.push().setValue(
-                        new Chat(name_user,
+                        new Chat(FirebaseAuth.getInstance().getCurrentUser().getEmail(),
                                 text_field.getText().toString())
                 );
                 text_field.setText("");

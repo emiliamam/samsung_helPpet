@@ -27,6 +27,7 @@ public class Registration extends AppCompatActivity {
     TextView wrong_password;
     TextView wrong_password2;
     TextView something_wrong;
+    TextView login_registr;
     EditText name_reg;
 
     private FirebaseAuth mauth;
@@ -37,6 +38,8 @@ public class Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration);
         next2 = (Button) findViewById(R.id.but_reg);
+        login_registr = (TextView) findViewById(R.id.login_registr);
+
         name = (EditText) findViewById(R.id.name_reg);
         email = (EditText) findViewById(R.id.email_reg);
         pass_reg = (EditText) findViewById(R.id.pass_reg);
@@ -59,7 +62,12 @@ public class Registration extends AppCompatActivity {
 
         mauth = FirebaseAuth.getInstance();
 
-
+        login_registr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Registration.this, Login.class));
+            }
+        });
         next2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

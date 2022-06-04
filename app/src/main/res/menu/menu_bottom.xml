@@ -2,25 +2,25 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
-    <item android:title="search"
+    <item
         android:icon="@drawable/search_menu"
         android:id="@+id/search"
         android:visible="true"
         android:enabled="true"
-        />
-    <item android:title="hands"
+        android:title="" />
+    <item android:title=""
         android:icon="@drawable/heand_hurt"
         android:id="@+id/hands"
         android:visible="true"
         android:enabled="true"
         />
-    <item android:title="lost"
+    <item android:title=""
         android:icon="@drawable/lost_menu"
         android:id="@+id/lost"
         android:visible="true"
         android:enabled="true"
         />
-    <item android:title="profile"
+    <item android:title=""
         android:icon="@drawable/user"
         android:id="@+id/profile"
         android:visible="true"

@@ -28,7 +28,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Вашь профиль"
+        android:text="Ваш профиль"
         android:textSize="25sp"
         android:fontFamily="@font/merriweatherlight"
         android:layout_marginStart="19dp"
